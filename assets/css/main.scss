@@ -1,0 +1,89 @@
+// temp!
+// @import "@/node_modules/bootstrap/scss/bootstrap";
+
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "@/node_modules/bootstrap/scss/functions";
+
+// Default variable overrides
+$body-bg: #191970; // linear-gradient(180deg, rgba(#191970, 1) 0%, rgba(#080830, 1) 100%);
+$body-color: #fff;
+
+$primary: #191970;
+$secondary: #0be0d4; // rgba(0, 0, 0, 0.5); // #b185d6;
+$light: #acb3df;
+// $text-light: #acb3df;
+
+// Typography
+$font-family-base: "Ubuntu", sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.7;
+
+// navbar
+$navbar-dark-color: #fff;
+$nav-link-padding-x: 6rem;
+
+// buttons
+$btn-active-box-shadow: 0;
+$btn-focus-width: 0;
+$btn-padding-y: 0.35rem;
+$btn-padding-x: 2rem;
+$btn-border-width: 0;
+$btn-border-radius: 5px;
+$btn-font-weight: 500;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1440px,
+);
+
+// font sizes
+$h1-font-size: 96px;
+
+$font-weight-light: 300;
+$font-weight-normal: 500;
+$font-weight-bold: 700;
+
+$headings-font-weight: 700;
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "@/node_modules/bootstrap/scss/variables";
+@import "@/node_modules/bootstrap/scss/mixins";
+@import "@/node_modules/bootstrap/scss/utilities";
+
+// 4. Include any optional Bootstrap components as you like
+@import "@/node_modules/bootstrap/scss/root";
+@import "@/node_modules/bootstrap/scss/reboot";
+@import "@/node_modules/bootstrap/scss/buttons";
+@import "@/node_modules/bootstrap/scss/type";
+@import "@/node_modules/bootstrap/scss/images";
+@import "@/node_modules/bootstrap/scss/containers";
+@import "@/node_modules/bootstrap/scss/grid";
+@import "@/node_modules/bootstrap/scss/navbar";
+@import "@/node_modules/bootstrap/scss/nav";
+@import "@/node_modules/bootstrap/scss/card";
+
+@import "@/node_modules/bootstrap/scss/dropdown";
+@import "@/node_modules/bootstrap/scss/transitions";
+
+// Helpers
+@import "@/node_modules/bootstrap/scss/helpers/position";
+
+// Utilities
+@import "@/node_modules/bootstrap/scss/utilities/api";
+
+body {
+  font-weight: 400; // no variable ??
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+}
