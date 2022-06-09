@@ -2,6 +2,7 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
+  modern: "client",
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
   router: {
@@ -41,10 +42,10 @@ export default {
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    { src: "@/plugins/splitting.js", mode: "client" },
-    { src: "@/plugins/bootstrap.js" },
-  ],
+  // plugins: [
+  //   { src: "@/plugins/splitting.js", mode: "client" },
+  //   { src: "@/plugins/bootstrap.js" },
+  // ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

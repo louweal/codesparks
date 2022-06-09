@@ -208,59 +208,69 @@
             align-self-center
           "
         >
-          <form
-            class="rounded-3 bg-c p-3 p-sm-4 p-xl-5"
-            name="contact"
-            method="POST"
-            data-netlify="true"
-          >
+          <div class="rounded-3 bg-c p-3 p-sm-4 p-xl-5">
             <div class="ms-1 mb-3">
               <i class="bi bi-envelope-open fs-2"></i>
             </div>
 
-            <!-- Name input -->
-            <div class="form-floating mb-4">
-              <input type="text" id="name" class="form-control bg-c" />
-              <label class="form-label" for="name">Name</label>
-            </div>
+            <form name="contact" method="POST" data-netlify="true">
+              <input type="hidden" name="form-name" value="contact" />
 
-            <!-- Email input -->
-            <div class="form-floating mb-4">
-              <input type="email" id="email" class="form-control bg-c" />
-              <label class="form-label" for="email">E-mail</label>
-            </div>
+              <!-- Name input -->
+              <div class="form-floating mb-4">
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control bg-c"
+                  name="name"
+                />
+                <label class="form-label" for="name">Name</label>
+              </div>
 
-            <!-- Message input -->
-            <div class="form-floating mb-4">
-              <textarea
-                class="form-control h-100 bg-c"
-                id="message"
-                rows="5"
-              ></textarea>
-              <label class="form-label" for="message">Message</label>
-            </div>
+              <!-- Email input -->
+              <div class="form-floating mb-4">
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control bg-c"
+                  name="email"
+                />
+                <label class="form-label" for="email">E-mail</label>
+              </div>
 
-            <!-- Checkbox -->
-            <div class="form-check mb-4">
-              <input
-                class="form-check-input me-2 bg-c"
-                type="checkbox"
-                value=""
-                id="form4Example4"
-              />
-              <label class="form-check-label" for="form4Example4">
-                I agree to the
-                <nuxt-link to="/privacy-statement" class="text-light"
-                  >privacy statement</nuxt-link
-                >
-              </label>
-            </div>
+              <!-- Message input -->
+              <div class="form-floating mb-4">
+                <textarea
+                  class="form-control h-100 bg-c"
+                  id="message"
+                  name="message"
+                  rows="5"
+                ></textarea>
+                <label class="form-label" for="message">Message</label>
+              </div>
 
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-secondary btn-block mb-4">
-              Send
-            </button>
-          </form>
+              <!-- Checkbox -->
+              <div class="form-check mb-4">
+                <input
+                  class="form-check-input me-2 bg-c"
+                  type="checkbox"
+                  value=""
+                  id="form4Example4"
+                />
+                <label class="form-check-label" for="form4Example4">
+                  I agree to the
+                  <nuxt-link to="/privacy-statement" class="text-light"
+                    >privacy statement</nuxt-link
+                  >
+                </label>
+              </div>
+
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-secondary btn-block mb-4">
+                Send
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
