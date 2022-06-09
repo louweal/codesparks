@@ -2,74 +2,265 @@
   <main>
     <hero />
 
-    <section class="h-100">
-      <div xxxclass="container-md">
-        <div class="row min-vh-100">
-          <div class="col-sm-12 col-lg-6 align-self-center">
-            <h2 class="text-secondary">About me</h2>
+    <section class="h-100 py-4" id="about">
+      <div class="row min-vh-100">
+        <div class="col-12 col-md-6 align-self-center mb-5 mb-md-0">
+          <h2 class="text-secondary">{{ $options.about.title }}</h2>
 
-            <hr class="border border-secondary w-50" />
+          <p v-for="(p, i) in $options.about.content" :key="i">{{ p }}</p>
 
-            <p>
-              Mauris at pharetra nisi. Mauris pharetra rutrum justo vitae
-              feugiat. Quisque pulvinar feugiat laoreet. Sed semper gravida
-              diam, id imperdiet nulla lobortis non. Etiam tempus porttitor
-              tincidunt. Integer arcu nunc, suscipit ut nisl sed, viverra varius
-              ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Maecenas dignissim ligula non condimentum eleifend.
-            </p>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-              imperdiet accumsan nunc, ac hendrerit tortor blandit et. Donec ut
-              felis odio. Donec consequat aliquet odio sit amet convallis.
-            </p>
-
-            <p>Some of the technologies and tools in my tech stack are:</p>
-
-            <div class="row">
-              <div class="col-4" v-for="(t, i) in $options.tech" :key="i">
-                <i class="bi-arrow-down">i</i> {{ t }}
-              </div>
+          <div class="row mb-3">
+            <div
+              class="col-6 col-sm-4"
+              v-for="(t, i) in $options.about.tech"
+              :key="i"
+            >
+              <i
+                class="bi bi-arrow-right-short text-secondary align-middle"
+              ></i>
+              {{ t }}
             </div>
           </div>
+          * planning to use only
+          <a href="#" class="text-secondary">Sanity</a> or another headless CMS
+          in the future
+        </div>
 
-          <div class="col-lg-5 offset-lg-1 col-xl-4 align-self-center">
-            <div class="img-c">
-              <img
-                src="@/images/ik.png"
-                alt="anneloes"
-                class="img-fluid rounded-3"
-              />
+        <div
+          class="
+            col-10
+            offset-1
+            col-sm-8
+            offset-sm-2
+            col-md-5
+            offset-md-1
+            col-xl-5
+            align-self-center
+          "
+        >
+          <div class="img-c">
+            <img
+              :src="require(`~/images/${$options.about.visual}`)"
+              alt="anneloes"
+              class="img-fluid rounded-3"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="h-100 py-4" id="projects">
+      <div class="row min-vh-100 align-self-center">
+        <div class="col-12 align-self-center">
+          <h2 class="text-secondary">{{ $options.projects.title }}</h2>
+
+          <div class="col-11 col-sm-8 col-md-6 col-lg-5 mb-5">
+            <p v-for="(p, i) in $options.projects.content" :key="i">{{ p }}</p>
+          </div>
+
+          <div class="row">
+            <template v-for="(p, i) in $options.projects.list">
+              <div
+                class="col-12 col-md-6 col-lg-4 mb-4"
+                :key="i"
+                v-if="i < numProjects"
+              >
+                <div class="card bg-c rounded-3 h-100">
+                  <div class="card-body">
+                    <h3 class="card-title">{{ p.title }}</h3>
+
+                    <div
+                      class="hstack gap-2 row-gap-0 flex-wrap"
+                      style="row-gap: 0 !important"
+                      v-if="p.tech"
+                    >
+                      <div
+                        class="text-secondary fw-bold"
+                        v-for="(t, i) in p.tech"
+                        :key="i"
+                      >
+                        {{ t }}
+                      </div>
+                    </div>
+
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                  <div class="card-footer">
+                    <div class="hstack gap-3">
+                      <a href="#" target="_blank">
+                        <i class="bi bi-github fs-5 align-middle me-1"></i>
+                        <span class="align-middle">Github</span>
+                      </a>
+                      <a href="#" target="_blank">
+                        <i class="bi bi-globe2 fs-5 align-middle me-1"></i>
+                        <span class="align-middle">Live site</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </template>
+
+            <div
+              class="text-center mt-3"
+              v-if="$options.projects.list.length > numProjects"
+            >
+              <div class="btn btn-secondary" @click="loadMoreProjects">
+                More projects
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="h-100">
-      <div xxxclass="container-md">
-        <div class="row min-vh-100">
-          <div class="col-12 align-self-center">
-            <h2 class="text-secondary">Projects</h2>
+    <section class="h-100 py-4" id="articles">
+      <div class="row min-vh-100 align-self-center">
+        <div class="col-12 align-self-center">
+          <h2 class="text-secondary">{{ $options.articles.title }}</h2>
 
-            <p>Some of the technologies and tools in my tech stack are:</p>
+          <div class="col-11 col-sm-8 col-md-6 col-lg-5 mb-5">
+            <p v-for="(p, i) in $options.articles.content" :key="i">{{ p }}</p>
+          </div>
 
-            <div class="row">
-              <div class="col-4" v-for="(p, i) in $options.projects" :key="i">
-                <div class="card bg-c mb-3 rounded-3">
-                  <div class="card-body">
-                    <h5 class="card-title">{{ p.title }}</h5>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="row">
+            <div
+              class="col-12 col-md-6 mb-4"
+              v-for="(a, i) in $options.articles.list.slice(0, numArticles)"
+              :key="i"
+            >
+              <nuxt-link
+                :to="`/post/${a.slug}`"
+                class="card bg-c rounded-3 h-100"
+              >
+                <div class="card-body">
+                  <div
+                    class="badge bg-secondary text-primary mb-1"
+                    v-if="a.badge"
+                  >
+                    {{ a.badge }}
                   </div>
+
+                  <h3 class="card-title">{{ a.title }}</h3>
+
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
                 </div>
+
+                <div class="card-footer">
+                  <i
+                    class="
+                      bi bi-arrow-right-short
+                      fs-5
+                      align-middle
+                      text-secondary
+                    "
+                  ></i>
+                  <span class="align-middle">Read more</span>
+                </div>
+              </nuxt-link>
+            </div>
+
+            <div
+              class="text-center mt-3"
+              v-if="$options.articles.list.length > numArticles"
+            >
+              <div class="btn btn-secondary" @click="loadMoreArticles">
+                More articles
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="h-100 py-4" id="contact">
+      <div class="row min-vh-100">
+        <div class="col-12 col-md-5 align-self-center mb-5 mb-md-0">
+          <h2 class="text-secondary">{{ $options.contact.title }}</h2>
+
+          <p v-for="(p, i) in $options.contact.content" :key="i">{{ p }}</p>
+
+          <div class="vstack gap-1">
+            <a
+              :href="s.url"
+              target="_blank"
+              class=""
+              v-for="(s, i) in $options.socials"
+              :key="i"
+            >
+              <i :class="`bi bi-${s.icon} me-2 align-middle`"></i>
+              <span class="align-middle">{{ s.title }}</span>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="
+            col-12 col-md-7
+            offset-lg-1
+            col-lg-6 col-xl-5
+            align-self-center
+          "
+        >
+          <form
+            class="rounded-3 bg-c p-3 p-sm-4 p-xl-5"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+          >
+            <div class="ms-1 mb-3">
+              <i class="bi bi-envelope-open fs-2"></i>
+            </div>
+
+            <!-- Name input -->
+            <div class="form-floating mb-4">
+              <input type="text" id="name" class="form-control bg-c" />
+              <label class="form-label" for="name">Name</label>
+            </div>
+
+            <!-- Email input -->
+            <div class="form-floating mb-4">
+              <input type="email" id="email" class="form-control bg-c" />
+              <label class="form-label" for="email">E-mail</label>
+            </div>
+
+            <!-- Message input -->
+            <div class="form-floating mb-4">
+              <textarea
+                class="form-control h-100 bg-c"
+                id="message"
+                rows="5"
+              ></textarea>
+              <label class="form-label" for="message">Message</label>
+            </div>
+
+            <!-- Checkbox -->
+            <div class="form-check mb-4">
+              <input
+                class="form-check-input me-2 bg-c"
+                type="checkbox"
+                value=""
+                id="form4Example4"
+              />
+              <label class="form-check-label" for="form4Example4">
+                I agree to the
+                <nuxt-link to="/privacy-statement" class="text-light"
+                  >privacy statement</nuxt-link
+                >
+              </label>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-secondary btn-block mb-4">
+              Send
+            </button>
+          </form>
         </div>
       </div>
     </section>
@@ -77,70 +268,39 @@
 </template>
 
 <script>
+import about from "@/data/about.json";
+import projects from "@/data/projects.json";
+import articles from "@/data/articles.json";
+import socials from "@/data/socials.json";
+import contact from "@/data/contact.json";
+
 export default {
   name: "Main",
 
   transition: "home",
 
-  tech: [
-    "html",
-    "css",
-    "javascript",
-    "solidity",
-    "bootstrap",
-    "hedera sdk",
-    "vue",
-    "nuxt",
-    "react",
-    "npm",
-    "git",
-    "python",
-    "php",
-    "wordpress",
-    "figma",
-    "blender",
-    "illustrator",
-  ],
+  about: about,
+  projects: projects,
+  articles,
+  socials,
+  contact,
 
-  projects: [
-    { title: "Hedera Helix" },
-    { title: "The Hederian Mint" },
-    { title: "Master Mind" },
-  ],
+  data() {
+    return {
+      numProjects: 6,
+      numArticles: 4,
+    };
+  },
+
+  methods: {
+    loadMoreProjects() {
+      this.numProjects += 3;
+    },
+    loadMoreArticles() {
+      this.numArticles += 4;
+    },
+  },
 };
 </script>
 
-<style lang="scss" scoped>
-.img-c {
-  position: relative;
-
-  &:before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    border-radius: 0.3rem;
-    transform: rotate(6deg);
-    background: #acb3df;
-    z-index: -1;
-  }
-
-  &:after {
-    content: "";
-    width: 98%;
-    height: 98%;
-    position: absolute;
-    left: 2%;
-    top: 2%;
-    border-radius: 0.3rem;
-    transform: rotate(2deg);
-    border: 6px solid #0be0d4;
-  }
-}
-
-.bg-c {
-  background-color: rgba(6, 6, 79, 0.5);
-}
-</style>
+<style lang="scss" scoped></style>

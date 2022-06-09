@@ -2,17 +2,22 @@
 // @import "@/node_modules/bootstrap/scss/bootstrap";
 
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
 
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "@/node_modules/bootstrap/scss/functions";
 
 // Default variable overrides
-$body-bg: #191970; // linear-gradient(180deg, rgba(#191970, 1) 0%, rgba(#080830, 1) 100%);
-$body-color: #fff;
-
 $primary: #191970;
 $secondary: #0be0d4; // rgba(0, 0, 0, 0.5); // #b185d6;
 $light: #acb3df;
+
+$body-bg: #191970; // linear-gradient(180deg, rgba(#191970, 1) 0%, rgba(#080830, 1) 100%);
+$body-color: #fff;
+$link-color: #fff;
+$link-decoration: none;
+$link-hover-color: $light;
+
 // $text-light: #acb3df;
 
 // Typography
@@ -33,6 +38,8 @@ $btn-border-width: 0;
 $btn-border-radius: 5px;
 $btn-font-weight: 500;
 
+$badge-padding-x: 0.9rem;
+
 $container-max-widths: (
   sm: 540px,
   md: 720px,
@@ -49,6 +56,20 @@ $font-weight-normal: 500;
 $font-weight-bold: 700;
 
 $headings-font-weight: 700;
+$spacer: 1rem; // default value
+$card-spacer-y: $spacer * 1.2;
+$card-spacer-x: $spacer * 1.8;
+
+$input-border-width: 0;
+$input-btn-focus-width: 0;
+$input-focus-bg: auto;
+
+$form-check-input-border: none;
+$form-check-input-width: 1.4em;
+
+$form-check-input-checked-bg-color: auto;
+// $input-border-color: rgba(0, 0, 0, 0.5);
+// $border-color: $light;
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "@/node_modules/bootstrap/scss/variables";
@@ -59,6 +80,7 @@ $headings-font-weight: 700;
 @import "@/node_modules/bootstrap/scss/root";
 @import "@/node_modules/bootstrap/scss/reboot";
 @import "@/node_modules/bootstrap/scss/buttons";
+@import "@/node_modules/bootstrap/scss/badge";
 @import "@/node_modules/bootstrap/scss/type";
 @import "@/node_modules/bootstrap/scss/images";
 @import "@/node_modules/bootstrap/scss/containers";
@@ -66,24 +88,94 @@ $headings-font-weight: 700;
 @import "@/node_modules/bootstrap/scss/navbar";
 @import "@/node_modules/bootstrap/scss/nav";
 @import "@/node_modules/bootstrap/scss/card";
-
 @import "@/node_modules/bootstrap/scss/dropdown";
+@import "@/node_modules/bootstrap/scss/forms";
 @import "@/node_modules/bootstrap/scss/transitions";
 
 // Helpers
 @import "@/node_modules/bootstrap/scss/helpers/position";
+@import "@/node_modules/bootstrap/scss/helpers/stacks";
+@import "@/node_modules/bootstrap/scss/helpers/ratio";
 
 // Utilities
 @import "@/node_modules/bootstrap/scss/utilities/api";
+
+// my customizations
 
 body {
   font-weight: 400; // no variable ??
 }
 
 a {
-  text-decoration: none;
+  transition: color 0.24s ease-in-out;
 }
 
-button {
-  padding: 0;
+a.card:hover {
+  color: #fff;
+}
+
+// .card {
+//   transition: opacity 0.3s ease-in;
+// }
+
+.btn-secondary {
+  transition: background-color 0.24s ease-in-out;
+
+  &:hover,
+  &:active:hover,
+  &:focus {
+    background-color: $light;
+    // color: #fff;
+  }
+}
+
+// button {
+//   padding: 0;
+// }
+
+// .bi {
+//   font-size: 1.1rem;
+//   // line-height: 0.9;
+// }
+
+// global css
+
+.img-c {
+  position: relative;
+
+  &:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 0.3rem;
+    transform: rotate(6deg);
+    background: #acb3df;
+    z-index: -1;
+  }
+
+  &:after {
+    content: "";
+    width: 98%;
+    height: 98%;
+    position: absolute;
+    left: 2%;
+    top: 2%;
+    border-radius: 0.3rem;
+    transform: rotate(2deg);
+    border: 6px solid #0be0d4;
+  }
+}
+
+.bg-c {
+  background-color: rgba(11, 224, 212, 0.2); // rgba(6, 6, 79, 0.5);
+  transition: background-color 0.4s ease-in-out;
+}
+
+a.bg-c {
+  &:hover {
+    background-color: rgba(11, 224, 212, 0.25); // rgba(6, 6, 79, 0.5);
+  }
 }

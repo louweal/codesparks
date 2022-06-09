@@ -1,0 +1,26 @@
+{
+  "title": "Projects",
+  "content": ["All these projects are build by me to learn something new."],
+  "list": [
+    {
+      "title": "Hedera Helix",
+      "tech": ["hedera-sdk", "solidity", "vue", "nuxt"]
+    },
+    {
+      "title": "The Hederian Mint",
+      "tech": ["vue", "nuxt", "scss", "blender", "figma"]
+    },
+    {
+      "title": "Codesparks",
+      "tech": ["bootstrap"]
+    },
+    {
+      "title": "Openbuur",
+      "tech": ["react", "redux", "express", "mongodb", "bootstrap"]
+    },
+    { "title": "HOSLO", "tech": ["vue", "nuxt", "bootstrap"] },
+    { "title": "xBike Tracker", "tech": ["d3.js", "javascript"] },
+    { "title": "Cryptovestigation", "tech": ["vue", "nuxt"] },
+    { "title": "Mastermind", "tech": ["react", "javascript"] }
+  ]
+}

@@ -5,40 +5,23 @@
     <navbar />
     <!-- <div id="pushdown" style="width: 100%; height: 82px"></div> -->
 
-    <div
-      class="container-lg"
-      style="xxxbackground-color: rgba(25, 25, 122, 0.5)"
-    >
+    <div class="container-lg">
       <div class="row">
-        <div class="col-12 col-sm-11 order-sm-last">
+        <div class="col-12 col-sm-10 order-sm-last">
           <Nuxt />
+
+          <div class="d-sm-none">
+            <socials-mobile />
+          </div>
+
+          <Footer />
         </div>
 
-        <div class="col-12 col-sm-1 order-sm-first">
+        <div class="d-none d-sm-block col-sm-1 order-sm-first">
           <socials />
         </div>
       </div>
     </div>
-
-    <!--<div class="bg-c">
-      <star v-for="i in 200" :key="i" />
-      <star v-for="j in 200" :min="66" :key="'j' + j" />
-      <star v-for="k in 200" :min="33" :key="'k' + k" /> 
-    </div>
-
-
-    <Header :fixed="true" />
-
-    <Pushmenu />
-    <transition
-      v-on:before-enter="beforeEnter"
-      v-on:after-enter="afterEnter"
-      xxxv-on:leave="leave"
-    >
-      <Nuxt />
-    </transition>
-
-    <Footer /> -->
   </div>
 </template>
 

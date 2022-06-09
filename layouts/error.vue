@@ -1,22 +1,20 @@
 <template>
   <main>
     <section class="h-100">
-      <div xxxclass="container-md">
-        <div class="row min-vh-100 d-flex justify-content-center">
-          <div class="col-sm-12 col-lg-6 align-self-center text-center">
-            <h1 class="text-secondary">4.0.4.</h1>
+      <div class="row min-vh-100 d-flex justify-content-center">
+        <div class="col-sm-12 col-lg-6 align-self-center text-center">
+          <h1 class="text-secondary">Eh?</h1>
 
-            <p>
-              Mauris at pharetra nisi. Mauris pharetra rutrum justo vitae
-              feugiat. Quisque pulvinar feugiat laoreet. Sed semper gravida
-              diam, id imperdiet nulla lobortis non. Etiam tempus porttitor
-              tincidunt. Integer arcu nunc, suscipit ut nisl sed, viverra varius
-              ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Maecenas dignissim ligula non condimentum eleifend.
-            </p>
+          <p>
+            Mauris at pharetra nisi. Mauris pharetra rutrum justo vitae feugiat.
+            Quisque pulvinar feugiat laoreet. Sed semper gravida diam, id
+            imperdiet nulla lobortis non. Etiam tempus porttitor tincidunt.
+            Integer arcu nunc, suscipit ut nisl sed, viverra varius ligula.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            dignissim ligula non condimentum eleifend.
+          </p>
 
-            <nuxt-link to="/" class="btn btn-secondary">Home</nuxt-link>
-          </div>
+          <nuxt-link to="/" class="btn btn-secondary">Home</nuxt-link>
         </div>
       </div>
     </section>

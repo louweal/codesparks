@@ -50,10 +50,10 @@
 export default {
   links: [
     { title: "Home", url: "/" },
-    { title: "About", url: "#about" },
-    { title: "Projects", url: "#projects" },
-    { title: "Blog", url: "#blog" },
-    { title: "Contact", url: "#contact" },
+    { title: "About", url: "/#about" },
+    { title: "Projects", url: "/#projects" },
+    { title: "Blog", url: "/#articles" },
+    { title: "Contact", url: "/#contact" },
   ],
 };
 </script>
