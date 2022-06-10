@@ -1,8 +1,22 @@
 <template>
   <div class="sparkles">
-    <sparkle v-for="i in 200" :key="i" />
-    <sparkle v-for="j in 200" :min="66" :key="'j' + j" />
-    <sparkle v-for="k in 200" :min="33" :key="'k' + k" />
+    <sparkle v-for="i in 50" :key="i" />
+    <sparkle v-for="j in 50" :min="66" :key="'j' + j" />
+    <sparkle v-for="k in 50" :min="33" :key="'k' + k" />
+
+    <sparkle v-for="i in 150" :key="'l' + i" class="d-none d-lg-block" />
+    <sparkle
+      v-for="j in 150"
+      :min="66"
+      :key="'m' + j"
+      class="d-none d-lg-block"
+    />
+    <sparkle
+      v-for="k in 150"
+      :min="33"
+      :key="'n' + k"
+      class="d-none d-lg-block"
+    />
   </div>
 </template>
 

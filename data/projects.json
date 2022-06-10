@@ -15,7 +15,7 @@
       "tech": ["bootstrap"]
     },
     {
-      "title": "Openbuur",
+      "title": "Goebuu",
       "tech": ["react", "redux", "express", "mongodb", "bootstrap"]
     },
     { "title": "HOSLO", "tech": ["vue", "nuxt", "bootstrap"] },

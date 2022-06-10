@@ -10,7 +10,8 @@
     "
   >
     <div class="container-fluid">
-      logo
+      <nuxt-link to="/" class="text-white"> logo </nuxt-link>
+
       <nuxt-link to="/">
         <!-- <img src="#" alt="" width="30" height="24" /> -->
       </nuxt-link>
@@ -52,29 +53,13 @@ export default {
     { title: "Home", url: "/" },
     { title: "About", url: "/#about" },
     { title: "Projects", url: "/#projects" },
-    { title: "Blog", url: "/#articles" },
+    { title: "Posts", url: "/#posts" },
     { title: "Contact", url: "/#contact" },
   ],
 };
 </script>
 
 <style lang="scss" scoped>
-// .bg-primary {
-//   // overrides default
-//   background: rgb(255, 255, 255);
-//   background: linear-gradient(
-//     0deg,
-//     rgba(255, 255, 255, 0) 0%,
-//     rgba(25, 25, 112, 1) 50%
-//   ) !important;
-// }
-
-// overrides
-
-.navbar-collapse.collapse.show ul {
-  // height: 100vh;
-}
-
 .navbar-toggler {
   border: none;
   box-shadow: none;

@@ -117,19 +117,19 @@
       </div>
     </section>
 
-    <section class="h-100 py-4" id="articles">
+    <section class="h-100 py-4" id="posts">
       <div class="row min-vh-100 align-self-center">
         <div class="col-12 align-self-center">
-          <h2 class="text-secondary">{{ $options.articles.title }}</h2>
+          <h2 class="text-secondary">{{ $options.posts.title }}</h2>
 
           <div class="col-11 col-sm-8 col-md-6 col-lg-5 mb-5">
-            <p v-for="(p, i) in $options.articles.content" :key="i">{{ p }}</p>
+            <p v-for="(p, i) in $options.posts.content" :key="i">{{ p }}</p>
           </div>
 
           <div class="row">
             <div
               class="col-12 col-md-6 mb-4"
-              v-for="(a, i) in $options.articles.list.slice(0, numArticles)"
+              v-for="(a, i) in $options.posts.list.slice(0, numPosts)"
               :key="i"
             >
               <nuxt-link
@@ -146,9 +146,8 @@
 
                   <h3 class="card-title">{{ a.title }}</h3>
 
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                  <p class="card-text" v-if="a.intro">
+                    {{ a.intro }}
                   </p>
                 </div>
 
@@ -168,10 +167,10 @@
 
             <div
               class="text-center mt-3"
-              v-if="$options.articles.list.length > numArticles"
+              v-if="$options.posts.list.length > numPosts"
             >
-              <div class="btn btn-secondary" @click="loadMoreArticles">
-                More articles
+              <div class="btn btn-secondary" @click="loadMorePosts">
+                More posts
               </div>
             </div>
           </div>
@@ -213,8 +212,29 @@
               <i class="bi bi-envelope-open fs-2"></i>
             </div>
 
-            <form name="contact" method="POST" data-netlify="true">
+            <div v-if="$route.query.state === 'success'">
+              <p>
+                Thank you for your message {{ $route.query.name }}! I'll get
+                back to you as soon as possible.
+              </p>
+            </div>
+
+            <form
+              v-else
+              name="contact"
+              method="POST"
+              :action="`${$route.path}?state=success&name=${name}#contact`"
+              data-netlify="true"
+              netlify-honeypot="title"
+            >
               <input type="hidden" name="form-name" value="contact" />
+
+              <div class="d-none">
+                <label>
+                  Don’t fill this out if you’re human:
+                  <input name="title" />
+                </label>
+              </div>
 
               <!-- Name input -->
               <div class="form-floating mb-4">
@@ -223,6 +243,8 @@
                   id="name"
                   class="form-control bg-c"
                   name="name"
+                  required
+                  @input="getName"
                 />
                 <label class="form-label" for="name">Name</label>
               </div>
@@ -234,6 +256,7 @@
                   id="email"
                   class="form-control bg-c"
                   name="email"
+                  required
                 />
                 <label class="form-label" for="email">E-mail</label>
               </div>
@@ -245,6 +268,7 @@
                   id="message"
                   name="message"
                   rows="5"
+                  required
                 ></textarea>
                 <label class="form-label" for="message">Message</label>
               </div>
@@ -255,9 +279,11 @@
                   class="form-check-input me-2 bg-c"
                   type="checkbox"
                   value=""
-                  id="form4Example4"
+                  name="privacy"
+                  id="privacy"
+                  required
                 />
-                <label class="form-check-label" for="form4Example4">
+                <label class="form-check-label" for="privacy">
                   I agree to the
                   <nuxt-link to="/privacy-statement" class="text-light"
                     >privacy statement</nuxt-link
@@ -280,7 +306,7 @@
 <script>
 import about from "@/data/about.json";
 import projects from "@/data/projects.json";
-import articles from "@/data/articles.json";
+import posts from "@/data/posts.json";
 import socials from "@/data/socials.json";
 import contact from "@/data/contact.json";
 
@@ -289,16 +315,17 @@ export default {
 
   transition: "home",
 
-  about: about,
-  projects: projects,
-  articles,
+  about,
+  projects,
+  posts,
   socials,
   contact,
 
   data() {
     return {
       numProjects: 6,
-      numArticles: 4,
+      numPosts: 4,
+      name: false, // contact form name input
     };
   },
 
@@ -306,8 +333,12 @@ export default {
     loadMoreProjects() {
       this.numProjects += 3;
     },
-    loadMoreArticles() {
-      this.numArticles += 4;
+    loadMorePosts() {
+      this.numPosts += 4;
+    },
+    getName(e) {
+      // console.log(e.target.value);
+      this.name = e.target.value;
     },
   },
 };
