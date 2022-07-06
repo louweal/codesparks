@@ -4,22 +4,17 @@
       <i class="bi bi-envelope-open fs-2"></i>
     </div>
 
-    <div v-if="$route.query.state === 'success'">
+    <!-- <div v-if="$route.query.state === 'success'">
       <p>
         Thank you for your message {{ $route.query.name }}! I'll get back to you
         as soon as possible.
       </p>
-    </div>
+    </div> -->
 
     <form
-      v-else
       name="contact"
       method="POST"
-      :action="
-        $route.path === '/'
-          ? `/?state=success&name=${name}`
-          : `/contact?state=success&name=${name}`
-      "
+      action="/contact/success"
       data-netlify="true"
       netlify-honeypot="title"
     >
