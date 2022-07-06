@@ -97,3 +97,20 @@
     </form>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      name: false, // contact form name input
+    };
+  },
+
+  methods: {
+    getName(e) {
+      // console.log(e.target.value);
+      this.name = e.target.value;
+    },
+  },
+};
+</script>

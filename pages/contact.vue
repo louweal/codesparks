@@ -42,17 +42,17 @@ import contact from "@/data/contact.json";
 export default {
   contact,
 
-  data() {
-    return {
-      name: false, // contact form name input
-    };
-  },
+  // data() {
+  //   return {
+  //     name: false, // contact form name input
+  //   };
+  // },
 
-  methods: {
-    getName(e) {
-      // console.log(e.target.value);
-      this.name = e.target.value;
-    },
-  },
+  // methods: {
+  //   getName(e) {
+  //     // console.log(e.target.value);
+  //     this.name = e.target.value;
+  //   },
+  // },
 };
 </script>

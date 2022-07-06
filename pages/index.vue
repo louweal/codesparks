@@ -235,7 +235,6 @@ export default {
     return {
       numProjects: 6,
       numPosts: 4,
-      name: false, // contact form name input
     };
   },
 
@@ -245,10 +244,6 @@ export default {
     },
     loadMorePosts() {
       this.numPosts += 4;
-    },
-    getName(e) {
-      // console.log(e.target.value);
-      this.name = e.target.value;
     },
   },
 };
