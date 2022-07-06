@@ -20,8 +20,8 @@
       method="POST"
       :action="
         $route.path === '/'
-          ? `/index?state=success&name=${name}#contact`
-          : `/${$route.path}?state=success&name=${name}#contact`
+          ? `/?state=success&name=${name}`
+          : `/contact?state=success&name=${name}`
       "
       data-netlify="true"
       netlify-honeypot="title"
