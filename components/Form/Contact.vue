@@ -4,9 +4,6 @@
       <i class="bi bi-envelope-open fs-2"></i>
     </div>
 
-    hello
-    {{ $route.path }}
-
     <div v-if="$route.query.state === 'success'">
       <p>
         Thank you for your message {{ $route.query.name }}! I'll get back to you
