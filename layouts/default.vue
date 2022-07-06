@@ -3,7 +3,6 @@
     <sparkles />
 
     <navbar />
-    <!-- <div id="pushdown" style="width: 100%; height: 82px"></div> -->
 
     <div class="container-lg">
       <div class="row">
@@ -28,5 +27,19 @@
 <script>
 export default {
   name: "Default",
+
+  transition: "fade",
 };
 </script>
+
+<style lang="scss" scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 4.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

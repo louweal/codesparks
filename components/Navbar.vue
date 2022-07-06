@@ -39,7 +39,9 @@
           </li>
 
           <li class="ms-lg-4 mt-4 mt-lg-0">
-            <a class="btn btn-secondary" href="#">Resume</a>
+            <a class="btn btn-secondary" href="/resume.pdf" target="_blank"
+              >Resume</a
+            >
           </li>
         </ul>
       </div>
@@ -51,10 +53,10 @@
 export default {
   links: [
     { title: "Home", url: "/" },
-    { title: "About", url: "/#about" },
-    { title: "Projects", url: "/#projects" },
-    { title: "Posts", url: "/#posts" },
-    { title: "Contact", url: "/#contact" },
+    { title: "About", url: "/about" },
+    { title: "Projects", url: "/projects" },
+    { title: "Posts", url: "/posts" },
+    { title: "Contact", url: "/contact" },
   ],
 };
 </script>

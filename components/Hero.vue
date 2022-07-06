@@ -11,8 +11,8 @@
       <div class="col-12 col-sm-9 col-md-5">
         <p>
           I'm a front-end developer & UX designer based in Leiden (The
-          Netherlands). I love building and designing sparkling websites, solid
-          applications, distributed apps, and everything in between.
+          Netherlands). I love building and designing sparkling websites, modern
+          web apps, decentralized apps, and everything in between.
         </p>
       </div>
 

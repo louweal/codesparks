@@ -1,26 +1,29 @@
 {
   "title": "Projects",
-  "content": ["All these projects are build by me to learn something new."],
+  "content": [
+    "Here are some of the websites and apps I build for fun and/or to learn something new."
+  ],
   "list": [
     {
+      "title": "Codesparks",
+      "content": "I build this personal website with bootstrap, scss and Vue/Nuxt ",
+      "tech": ["bootstrap", "scss", "vue", "nuxt"],
+      "repo": "https://github.com/louweal/codesparks",
+      "site": "https://www.codesparks.nl"
+    },
+    {
       "title": "Hedera Helix",
-      "tech": ["hedera-sdk", "solidity", "vue", "nuxt"]
+      "content": "This dApp encourages long-term use of products and buying and selling more products secondhand by attaching a smart contract to each product, which contains a small additional deposit amount. 60% of this deposit is returned over time, 30% is given to a secondhand buyer and 10% is donated to an environmental charity.",
+      "tech": ["hedera-sdk", "solidity", "vue", "nuxt"],
+      "repo": "https://github.com/louweal/helix",
+      "site": "https://helix.codesparks.nl"
     },
     {
       "title": "The Hederian Mint",
-      "tech": ["vue", "nuxt", "scss", "blender", "figma"]
-    },
-    {
-      "title": "Codesparks",
-      "tech": ["bootstrap"]
-    },
-    {
-      "title": "Goebuu",
-      "tech": ["react", "redux", "express", "mongodb", "bootstrap"]
-    },
-    { "title": "HOSLO", "tech": ["vue", "nuxt", "bootstrap"] },
-    { "title": "xBike Tracker", "tech": ["d3.js", "javascript"] },
-    { "title": "Cryptovestigation", "tech": ["vue", "nuxt"] },
-    { "title": "Mastermind", "tech": ["react", "javascript"] }
+      "content": "Created a small collection of 3-dimensional NFT’s representing digital HBAR coins and developed a small website showcasing this collection with Vue and Nuxt.",
+      "tech": ["vue", "nuxt", "scss", "blender", "figma"],
+      "repo": "https://github.com/louweal/thehederianmint",
+      "site": "https://www.thehederianmint.com"
+    }
   ]
 }

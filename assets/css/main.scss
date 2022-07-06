@@ -179,3 +179,13 @@ a.bg-c {
     background-color: rgba(11, 224, 212, 0.25); // rgba(6, 6, 79, 0.5);
   }
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 5.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
