@@ -12,7 +12,7 @@
           <div class="row">
             <div
               class="col-12 col-md-6 mb-4"
-              v-for="(a, i) in $options.posts.list.slice(0, numPosts)"
+              v-for="(a, i) in $options.posts.list"
               :key="i"
             >
               <nuxt-link

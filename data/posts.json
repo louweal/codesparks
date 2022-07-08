@@ -48,51 +48,6 @@
         "url": "jambo.jpg"
       },
       "intro": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ab accusantium, placeat commodi obcaecati amet! Vel dicta incidunt, ut earum impedit maxime optio cumque minus voluptatibus labore delectus, expedita tempore?"
-    },
-    {
-      "title": "CryptoCrafts: The first store for creative crypto-enthousiasts!",
-      "badge": "news",
-      "slug": "cryptocrafts-store-is-open",
-      "date": "24 July 2022",
-      "visual": {
-        "title": "Jambo",
-        "url": "jambo.jpg"
-      },
-      "intro": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ab accusantium, placeat commodi obcaecati amet! Vel dicta incidunt, ut earum impedit maxime optio cumque minus voluptatibus labore delectus, expedita tempore?"
-    },
-    {
-      "title": "How to use Hedera SDK in a Vue app",
-      "badge": "tutorial",
-      "slug": "tutorial-hedera-sdk-vue",
-      "date": "1 July 2022",
-      "visual": {
-        "title": "Jambo",
-        "url": "jambo.jpg"
-      },
-      "intro": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ab accusantium, placeat commodi obcaecati amet! Vel dicta incidunt, ut earum impedit maxime optio cumque minus voluptatibus labore delectus, expedita tempore?"
-    },
-    {
-      "title": "A selection of the projects I did for Commandos",
-      "badge": "blog",
-      "slug": "projects-commandos",
-      "date": "11 June 2022",
-      "visual": {
-        "title": "Jambo",
-        "url": "jambo.jpg"
-      },
-      "intro": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ab accusantium, placeat commodi obcaecati amet! Vel dicta incidunt, ut earum impedit maxime optio cumque minus voluptatibus labore delectus, expedita tempore?",
-      "comments": [
-        {
-          "name": "Dirk",
-          "date": "24 July 2024",
-          "comment": "Very ugly post, wasted my time reading this! Keep up the good work!"
-        },
-        {
-          "name": "Dirk",
-          "date": "24 July 2024",
-          "comment": "Very ugly post, wasted my time reading this! Keep up the good work!"
-        }
-      ]
     }
   ]
 }
