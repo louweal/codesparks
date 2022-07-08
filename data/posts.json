@@ -8,22 +8,40 @@
       "title": "Meet Jambo: the new junior bark-end developer",
       "badge": "blog",
       "slug": "jambo-bark-end-developer",
-      "date": "11 June 2022",
+      "date": "11 July 2022",
+      "intro": "The best bark-end developer in the world!",
       "visual": {
         "title": "Jambo",
-        "url": "jambo.jpg"
+        "url": "jam-hero.png"
       },
-      "intro": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ab accusantium, placeat commodi obcaecati amet! Vel dicta incidunt, ut earum impedit maxime optio cumque minus voluptatibus labore delectus, expedita tempore?",
-      "comments": [
+
+      "sections": [
         {
-          "name": "Dirk",
-          "date": "24 July 2024",
-          "comment": "Very ugly post, wasted my time reading this! Keep up the good work!"
+          "content": "Since two months we have a junior bark-end developer named Jambo. He was only 9 weeks old when he started with us and it took him some days to develop his barks, but now he is a very good barker! Aside from barking he loves to be in the park and to play with other dogs. "
         },
         {
-          "name": "Dirk",
+          "content": "He also loves to work on this hunting skills with his toys – especially rubber chickens – or by chasing his tail. He can already destruct some toys within minutes! In his free time he enjoys sleeping with a lot of peeing and pooping in between. ;)",
+          "visual": {
+            "title": "Jambo 6 weeks old",
+            "url": "jam-visual.png"
+          }
+        },
+        {
+          "content": "Fun fact: he is a Schipperke, which is the smallest shepherd breed in the world which was previously used on ships to catch mice and other small animals. But they are also the perfectly capable to assist (front-end) developers like me with their positive energy and cuteness. ;)"
+        },
+        {
+          "content": "We are extremely happy to have him on our team! He brings us a tons of happiness & fun and he keeps us healthy by taking us on many walks each day. Jambo adds even more sparkles to Codesparks!",
+          "visual": {
+            "title": "Jambo",
+            "url": "jambo.jpg"
+          }
+        }
+      ],
+      "comments": [
+        {
+          "name": "Henk",
           "date": "24 July 2024",
-          "comment": "Very ugly post, wasted my time reading this! Keep up the good work!"
+          "comment": "Cute!"
         }
       ]
     },
@@ -32,10 +50,6 @@
       "badge": "project",
       "slug": "hedera-helix",
       "date": "31 May 2022",
-      "visual": {
-        "title": "Jambo",
-        "url": "jambo.jpg"
-      },
       "intro": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ab accusantium, placeat commodi obcaecati amet! Vel dicta incidunt, ut earum impedit maxime optio cumque minus voluptatibus labore delectus, expedita tempore?"
     },
     {
@@ -43,10 +57,6 @@
       "badge": "blog",
       "slug": "the-hederian-mint-nft-collection",
       "date": "31 May 2022",
-      "visual": {
-        "title": "Jambo",
-        "url": "jambo.jpg"
-      },
       "intro": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ab accusantium, placeat commodi obcaecati amet! Vel dicta incidunt, ut earum impedit maxime optio cumque minus voluptatibus labore delectus, expedita tempore?"
     }
   ]

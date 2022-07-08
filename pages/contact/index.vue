@@ -38,21 +38,10 @@
 
 <script>
 import contact from "@/data/contact.json";
+import socials from "@/data/socials.json";
 
 export default {
   contact,
-
-  // data() {
-  //   return {
-  //     name: false, // contact form name input
-  //   };
-  // },
-
-  // methods: {
-  //   getName(e) {
-  //     // console.log(e.target.value);
-  //     this.name = e.target.value;
-  //   },
-  // },
+  socials,
 };
 </script>

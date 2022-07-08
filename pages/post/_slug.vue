@@ -14,7 +14,7 @@
           <p>{{ post.date }}</p>
         </div>
 
-        <div class="col-12">
+        <div class="col-12" v-if="post.visual">
           <div class="ratio ratio-21x9 mt-3 mb-5">
             <img
               :src="require(`~/images/${post.visual.url}`)"
@@ -27,34 +27,19 @@
         <!-- </div> -->
 
         <div class="col-12 col-sm-8 offset-sm-2">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum
-            iusto, omnis autem assumenda totam soluta distinctio quidem laborum
-            cum, dolor et quisquam illo adipisci rerum, deleniti error
-            explicabo. Cum, enim!
-          </p>
+          <template v-for="(section, index) in post.sections">
+            <p :key="index">
+              {{ section.content }}
+            </p>
 
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam nobis
-            quis dolorum provident, rerum sed beatae, in eveniet saepe minus
-            doloremque aliquid amet ab omnis perferendis ut deleniti.
-            Cupiditate, est?
-          </p>
-
-          <div class="my-5 img-c">
-            <img
-              :src="require(`~/images/jambo.jpg`)"
-              alt="anneloes"
-              class="img-fluid rounded-3"
-            />
-          </div>
-
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam nobis
-            quis dolorum provident, rerum sed beatae, in eveniet saepe minus
-            doloremque aliquid amet ab omnis perferendis ut deleniti.
-            Cupiditate, est?
-          </p>
+            <div class="my-5 img-c" v-if="section.visual" :key="'v' + index">
+              <img
+                :src="require(`~/images/${section.visual.url}`)"
+                alt="section.visual.name"
+                class="img-fluid rounded-3"
+              />
+            </div>
+          </template>
 
           <social-share :title="post.title" />
         </div>
