@@ -21,9 +21,7 @@
               {{ t }}
             </div>
           </div>
-          * planning to use only
-          <a href="#" class="text-secondary">Sanity</a> or another headless CMS
-          in the future
+          * I'm planning to use another headless CMS in the future
         </div>
 
         <div
@@ -185,16 +183,16 @@
           <p v-for="(p, i) in $options.contact.content" :key="i">{{ p }}</p>
 
           <div class="vstack gap-1">
-            <a
-              :href="s.url"
-              target="_blank"
-              class=""
-              v-for="(s, i) in $options.socials"
-              :key="i"
-            >
-              <i :class="`bi bi-${s.icon} me-2 align-middle`"></i>
-              <span class="align-middle">{{ s.title }}</span>
-            </a>
+            <template v-for="(s, i) in $options.socials">
+              <nuxt-link v-if="s.url.startsWith('/')" :to="s.url" :key="i">
+                <i :class="`bi bi-${s.icon} me-2 align-middle`"></i>
+                <span class="align-middle">{{ s.title }}</span></nuxt-link
+              >
+              <a v-else :href="s.url" target="_blank" class="" :key="i">
+                <i :class="`bi bi-${s.icon} me-2 align-middle`"></i>
+                <span class="align-middle">{{ s.title }}</span>
+              </a>
+            </template>
           </div>
         </div>
 

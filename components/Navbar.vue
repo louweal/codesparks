@@ -1,21 +1,12 @@
 <template>
   <nav
-    class="
-      navbar navbar-expand-lg navbar-dark
-      text-white
-      fixed-top
-      xxxbg-primary
-      p-3
-      px-lg-5
-    "
+    class="navbar navbar-expand-lg navbar-dark text-white fixed-top p-3 px-lg-5"
   >
     <div class="container-fluid">
-      <nuxt-link to="/" class="text-white"> logo </nuxt-link>
-
-      <nuxt-link to="/">
-        <!-- <img src="#" alt="" width="30" height="24" /> -->
+      <nuxt-link to="/" class="d-none d-lg-block">
+        <img src="@/images/logo.svg" alt="" width="61" height="39" />
       </nuxt-link>
-      <button
+      <!-- <button
         class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
@@ -25,7 +16,7 @@
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button> -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
           <li

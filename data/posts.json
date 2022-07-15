@@ -36,28 +36,24 @@
             "url": "jambo.jpg"
           }
         }
-      ],
-      "comments": [
-        {
-          "name": "Henk",
-          "date": "24 July 2024",
-          "comment": "Cute!"
-        }
       ]
     },
     {
-      "title": "Hedera Helix: Helping the environment with smart contracts",
-      "badge": "project",
-      "slug": "hedera-helix",
-      "date": "31 May 2022",
-      "intro": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ab accusantium, placeat commodi obcaecati amet! Vel dicta incidunt, ut earum impedit maxime optio cumque minus voluptatibus labore delectus, expedita tempore?"
-    },
-    {
-      "title": "How and why I created a NFT collection",
+      "title": "My project Hedera Helix won prizes in the Hedera 2022 Hackathon!",
       "badge": "blog",
-      "slug": "the-hederian-mint-nft-collection",
-      "date": "31 May 2022",
-      "intro": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ab accusantium, placeat commodi obcaecati amet! Vel dicta incidunt, ut earum impedit maxime optio cumque minus voluptatibus labore delectus, expedita tempore?"
+      "slug": "helix-hedera-hackathon-2022",
+      "date": "1 June 2022",
+      "intro": "My decentralised app Hedera Helix won the in the sustainability challenge sponsored by Avery Dennison!",
+      "visual": {
+        "title": "Hedera Helix",
+        "url": "helix-hero.png"
+      },
+
+      "sections": [
+        {
+          "content": "I'll write a blog post about my project here soon!"
+        }
+      ]
     }
   ]
 }

@@ -5,25 +5,25 @@
   ],
   "list": [
     {
-      "title": "Codesparks",
-      "content": "I build this personal website with bootstrap, scss and Vue/Nuxt ",
-      "tech": ["bootstrap", "scss", "vue", "nuxt"],
-      "repo": "https://github.com/louweal/codesparks",
-      "site": "https://www.codesparks.nl"
-    },
-    {
       "title": "Hedera Helix",
-      "content": "This dApp encourages long-term use of products and buying and selling more products secondhand by attaching a smart contract to each product, which contains a small additional deposit amount. 60% of this deposit is returned over time, 30% is given to a secondhand buyer and 10% is donated to an environmental charity.",
+      "content": "This dApp encourages long-term use of items and buying secondhand items by attaching a smart contract to each product, which contains a small additional deposit amount. 60% of this deposit is returned over time, 30% is given to a secondhand buyer and 10% is donated to an environmental charity.",
       "tech": ["hedera-sdk", "solidity", "vue", "nuxt"],
       "repo": "https://github.com/louweal/helix",
       "site": "https://helix.codesparks.nl"
     },
     {
       "title": "The Hederian Mint",
-      "content": "Created a small collection of 3-dimensional NFT’s representing digital HBAR coins and developed a small website showcasing this collection with Vue and Nuxt.",
+      "content": "The Hederian Mint is a website that showcases a small collection of 3-dimensional NFT’s representing digital HBAR coins. The NFT collection was created by me using Blender.",
       "tech": ["vue", "nuxt", "scss", "blender", "figma"],
       "repo": "https://github.com/louweal/thehederianmint",
       "site": "https://www.thehederianmint.com"
+    },
+    {
+      "title": "Codesparks",
+      "content": "Codesparks is my personal portfolio website, which I build with Vue and Nuxt. For learning purposes this website was build using Bootstrap, a CSS framework, instead of using my own custom SCSS framework.",
+      "tech": ["bootstrap", "scss", "vue", "nuxt"],
+      "repo": "https://github.com/louweal/codesparks",
+      "site": "https://www.codesparks.nl"
     }
   ]
 }

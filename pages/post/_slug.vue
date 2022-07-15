@@ -66,7 +66,6 @@
                     class="rounded-3 bg-c p-3 mb-3"
                     v-for="(c, i) in post.comments"
                     :key="i"
-                    xxxclass="i < post.comments.length - 1 ? 'mb-4' : false"
                   >
                     <p>{{ c.comment }}</p>
 
@@ -158,7 +157,7 @@
       </div>
     </section>
 
-    <section class="h-100 py-4">
+    <section class="h-100 py-4" v-if="$options.posts.list.length > 1">
       <div class="row min-vh-100">
         <div class="col-12 align-self-center">
           <h1 class="h2 mb-4">Latest posts</h1>

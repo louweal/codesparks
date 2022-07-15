@@ -5,13 +5,13 @@
         <div class="col-sm-12 col-lg-6 align-self-center text-center">
           <h1 class="text-secondary">Privacy statement</h1>
 
+          <h4>General</h4>
+          <p>This website doesn't collect any data.</p>
+
+          <h4>Forms</h4>
           <p>
-            Mauris at pharetra nisi. Mauris pharetra rutrum justo vitae feugiat.
-            Quisque pulvinar feugiat laoreet. Sed semper gravida diam, id
-            imperdiet nulla lobortis non. Etiam tempus porttitor tincidunt.
-            Integer arcu nunc, suscipit ut nisl sed, viverra varius ligula.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-            dignissim ligula non condimentum eleifend.
+            Form submissions are managed using Netlify Forms. Your name and
+            e-mail are only used to reply to your message.
           </p>
         </div>
       </div>

@@ -19,9 +19,7 @@
               {{ t }}
             </div>
           </div>
-          * planning to use only
-          <a href="#" class="text-secondary">Sanity</a> or another headless CMS
-          in the future
+          * I'm planning to use another headless CMS in the future
         </div>
 
         <div

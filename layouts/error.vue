@@ -14,7 +14,7 @@
           </p>
 
           <p>
-            <i class="bi bi-arrow-left-short text-secondary align-middle"></i>
+            <i class="bi bi-arrow-right-short text-secondary align-middle"></i>
             <nuxt-link to="/"> Go back to the homepage </nuxt-link>
           </p>
           <!-- <p>
