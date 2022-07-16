@@ -88,6 +88,7 @@
                   method="POST"
                   action="/success"
                   data-netlify="true"
+                  netlify
                   netlify-honeypot="title"
                 >
                   <input type="hidden" name="form-name" value="comment" />

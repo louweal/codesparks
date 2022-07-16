@@ -30,9 +30,9 @@
           </li>
 
           <li class="ms-lg-4 mt-4 mt-lg-0">
-            <a class="btn btn-secondary" href="/resume.pdf" target="_blank"
-              >Resume</a
-            >
+            <a class="btn btn-secondary" href="/resume.pdf" target="_blank">
+              Resume
+            </a>
           </li>
         </ul>
       </div>
