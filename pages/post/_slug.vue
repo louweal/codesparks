@@ -86,7 +86,7 @@
                 <form
                   name="comment"
                   method="POST"
-                  :action="`${$route.path}?state=success&name=${name}#comments`"
+                  action="/success"
                   data-netlify="true"
                   netlify-honeypot="title"
                 >
