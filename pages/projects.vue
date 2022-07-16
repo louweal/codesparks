@@ -61,5 +61,7 @@ import projects from "@/data/projects.json";
 
 export default {
   projects,
+
+  // transition: "home",
 };
 </script>

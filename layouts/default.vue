@@ -28,7 +28,7 @@
 export default {
   name: "Default",
 
-  transition: "fade",
+  transition: "page",
 };
 </script>
 

@@ -221,7 +221,7 @@ import contact from "@/data/contact.json";
 export default {
   name: "Main",
 
-  transition: "home",
+  transition: "page",
 
   about,
   projects,
