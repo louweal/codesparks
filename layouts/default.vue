@@ -13,7 +13,9 @@
             <socials-mobile />
           </div>
 
-          <Footer />
+          <!-- {{ $route.path }} -->
+
+          <Footer v-if="$route.path !== '/nav'" />
         </div>
 
         <div class="d-none d-sm-block col-sm-1 order-sm-first">

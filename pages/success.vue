@@ -13,7 +13,7 @@
               after review.
             </p>
 
-            <p @click="$router.back()" style="cursor: pointer">
+            <p @click="$router.go(-2)" style="cursor: pointer">
               <i
                 class="bi bi-arrow-left-short fs-5 align-middle text-secondary"
               >
