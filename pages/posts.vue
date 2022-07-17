@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="h-100 py-4" id="posts">
+    <section class="h-100 py-5" id="posts">
       <div class="row min-vh-100 align-self-center">
         <div class="col-12 align-self-center">
           <h2 class="text-secondary">{{ $options.posts.title }}</h2>

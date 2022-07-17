@@ -46,7 +46,7 @@
       </div>
     </section>
 
-    <section class="h-100 py-4" id="comments">
+    <section class="h-100 py-5" id="comments">
       <div class="row min-vh-100">
         <div class="col-12 align-self-center">
           <div class="row">
@@ -158,7 +158,7 @@
       </div>
     </section>
 
-    <section class="h-100 py-4" v-if="$options.posts.list.length > 1">
+    <section class="h-100 py-5" v-if="$options.posts.list.length > 1">
       <div class="row min-vh-100">
         <div class="col-12 align-self-center">
           <h1 class="h2 mb-4">Latest posts</h1>

@@ -2,7 +2,7 @@
   <main>
     <hero />
 
-    <section class="h-100 py-4" id="about">
+    <section class="h-100 py-5" id="about">
       <div class="row min-vh-100">
         <div class="col-12 col-md-6 align-self-center mb-5 mb-md-0">
           <h2 class="text-secondary">{{ $options.about.title }}</h2>
@@ -47,7 +47,7 @@
       </div>
     </section>
 
-    <section class="h-100 py-4" id="projects">
+    <section class="h-100 py-5" id="projects">
       <div class="row min-vh-100 align-self-center">
         <div class="col-12 align-self-center">
           <h2 class="text-secondary">{{ $options.projects.title }}</h2>
@@ -114,7 +114,7 @@
       </div>
     </section>
 
-    <section class="h-100 py-4" id="posts">
+    <section class="h-100 py-5" id="posts">
       <div class="row min-vh-100 align-self-center">
         <div class="col-12 align-self-center">
           <h2 class="text-secondary">{{ $options.posts.title }}</h2>
@@ -175,7 +175,7 @@
       </div>
     </section>
 
-    <section class="h-100 py-4" id="contact">
+    <section class="h-100 py-5" id="contact">
       <div class="row min-vh-100">
         <div class="col-12 col-md-5 align-self-center mb-5 mb-md-0">
           <h2 class="text-secondary">{{ $options.contact.title }}</h2>

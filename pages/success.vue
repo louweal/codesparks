@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="h-100 py-4" id="contact">
+    <section class="h-100 py-5" id="contact">
       <div class="row justify-content-center" style="min-height: 90vh">
         <div class="col-12 col-md-7 col-lg-6 col-xl-5 align-self-center">
           <div class="rounded-3 bg-c p-3 p-sm-4 p-xl-5">
