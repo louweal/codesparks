@@ -33,16 +33,11 @@ export default {
       default: "",
       required: true,
     },
-    // slug: {
-    //   type: String,
-    //   default: "",
-    //   required: true,
-    // },
   },
 
   computed: {
     domain() {
-      return "http://localhost:8000";
+      return "https://www.codesparks.nl";
     },
   },
 };

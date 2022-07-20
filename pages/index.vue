@@ -182,17 +182,13 @@
 
           <p v-for="(p, i) in $options.contact.content" :key="i">{{ p }}</p>
 
-          <div class="vstack gap-1">
-            <template v-for="(s, i) in $options.socials">
-              <nuxt-link v-if="s.url.startsWith('/')" :to="s.url" :key="i">
-                <i :class="`bi bi-${s.icon} me-2 align-middle`"></i>
-                <span class="align-middle">{{ s.title }}</span></nuxt-link
-              >
-              <a v-else :href="s.url" target="_blank" class="" :key="i">
-                <i :class="`bi bi-${s.icon} me-2 align-middle`"></i>
+          <div class="row mb-3">
+            <div class="col-6" v-for="(s, i) in $options.socials" :key="i">
+              <a :href="s.url" target="_blank">
+                <i :class="`bi bi-${s.icon} bi-16 me-2 align-middle`"></i>
                 <span class="align-middle">{{ s.title }}</span>
               </a>
-            </template>
+            </div>
           </div>
         </div>
 

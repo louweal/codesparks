@@ -5,13 +5,18 @@
     "url": "https://www.github.com/louweal"
   },
   {
-    "title": "Instagram",
-    "icon": "instagram",
-    "url": "/404"
+    "title": "LinkedIn",
+    "icon": "linkedin",
+    "url": "https://www.linkedin.com/in/anneloes-louwe/"
   },
   {
-    "title": "Discord",
-    "icon": "discord",
-    "url": "/404"
+    "title": "Dev.to",
+    "icon": "dev",
+    "url": "https://dev.to/louweal"
+  },
+  {
+    "title": "Codewars",
+    "icon": "codewars",
+    "url": "https://www.codewars.com/users/louweal"
   }
 ]

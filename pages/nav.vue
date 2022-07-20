@@ -1,7 +1,7 @@
 <template>
   <main>
     <section class="h-100 py-5" id="contact">
-      <div class="row justify-content-center" style="min-height: 80vh">
+      <div class="row justify-content-center" style="min-height: 75vh">
         <div class="align-self-center">
           <ul class="list-unstyled text-center">
             <li class="nav-item" v-for="(l, i) in $options.menu" :key="i">

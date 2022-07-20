@@ -28,11 +28,28 @@
 
         <div class="col-12 col-sm-8 offset-sm-2">
           <template v-for="(section, index) in post.sections">
-            <p :key="index">
+            <h2 v-if="section.title" :key="'t' + index" class="h3">
+              {{ section.title }}
+            </h2>
+
+            <template v-if="section.video">
+              <video controls :key="'v' + index">
+                <source
+                  :src="require(`~/videos/${section.video.url}`)"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+              <small :key="'caption' + index">
+                {{ section.video.caption }}
+              </small>
+            </template>
+
+            <p :key="'c' + index">
               {{ section.content }}
             </p>
 
-            <div class="my-5 img-c" v-if="section.visual" :key="'v' + index">
+            <div class="my-5 img-c" v-if="section.visual" :key="'i' + index">
               <img
                 :src="require(`~/images/${section.visual.url}`)"
                 alt="section.visual.name"
@@ -247,12 +264,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.bg-c {
-  background-color: rgba(11, 224, 212, 0.2); // rgba(6, 6, 79, 0.5);
-  transition: background-color 0.4s ease-in-out;
-
-  // &:hover {
-  //   background-color: rgba(11, 224, 212, 0.25); // rgba(6, 6, 79, 0.5);
-  // }
+video {
+  width: 100%;
 }
 </style>

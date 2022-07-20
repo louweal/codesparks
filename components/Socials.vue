@@ -3,16 +3,8 @@
     <div class="col align-self-center">
       <div class="vstack gap-3 align-items-center">
         <template v-for="(s, i) in $options.socials">
-          <nuxt-link
-            v-if="s.url.startsWith('/')"
-            :key="i"
-            :to="s.url"
-            class="fs-4"
-          >
-            <i :class="`bi bi-${s.icon}`"></i>
-          </nuxt-link>
-          <a :key="i" v-else :href="s.url" target="_blank" class="fs-4">
-            <i :class="`bi bi-${s.icon}`"></i>
+          <a :key="i" :href="s.url" target="_blank" class="fs-4">
+            <i :class="`bi bi-${s.icon} bi-24`"></i>
           </a>
         </template>
       </div>
@@ -26,3 +18,5 @@ export default {
   socials,
 };
 </script>
+
+<style lang="scss" scoped></style>

@@ -7,7 +7,7 @@ export default {
     base: "/",
   },
   head: {
-    title: "Codesparks",
+    title: "Anneloes Louwe | Portfolio",
     htmlAttrs: {
       lang: "en",
     },
