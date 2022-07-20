@@ -32,4 +32,11 @@ export default {
   buildModules: [],
   modules: ["@nuxtjs/style-resources"],
   build: {},
+
+  generate: {
+    routes: [
+      "/post/jambo-bark-end-developer",
+      "/post/helix-hedera-hackathon-2022",
+    ],
+  },
 };
