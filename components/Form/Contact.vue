@@ -4,13 +4,6 @@
       <i class="bi bi-envelope-open fs-2"></i>
     </div>
 
-    <!-- <div v-if="$route.query.state === 'success'">
-      <p>
-        Thank you for your message {{ $route.query.name }}! I'll get back to you
-        as soon as possible.
-      </p>
-    </div> -->
-
     <form
       name="contact"
       method="POST"
@@ -101,7 +94,6 @@ export default {
 
   methods: {
     getName(e) {
-      // console.log(e.target.value);
       this.name = e.target.value;
     },
   },

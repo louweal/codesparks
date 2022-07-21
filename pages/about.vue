@@ -52,7 +52,5 @@ import about from "@/data/about.json";
 
 export default {
   about,
-
-  // transition: "home",
 };
 </script>

@@ -17,17 +17,8 @@
             <i class="bi bi-arrow-right-short text-secondary align-middle"></i>
             <nuxt-link to="/"> Go back to the homepage </nuxt-link>
           </p>
-          <!-- <p>
-            <i class="bi bi-arrow-right-short text-secondary align-middle"></i>
-            <nuxt-link to="/contact">Contact me</nuxt-link>
-          </p> -->
 
           <nuxt-link to="/contact" class="btn btn-secondary">Contact</nuxt-link>
-
-          <!-- <div class="h-stack">
-            <nuxt-link to="/" class="btn btn-secondary">Home</nuxt-link>
-            <nuxt-link to="/" class="btn btn-secondary">Contact</nuxt-link>
-          </div> -->
         </div>
       </div>
     </section>
@@ -36,6 +27,6 @@
 
 <script>
 export default {
-  transition: "fade",
+  transition: "page",
 };
 </script>

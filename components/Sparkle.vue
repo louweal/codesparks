@@ -41,7 +41,6 @@ export default {
     },
     randomSize() {
       return 2 + Math.ceil(Math.random() * 6) + "px";
-      // return 2 + Math.ceil(Math.random() * 5) + "px";
     },
     randomDelay() {
       return Math.ceil(Math.random() * 15) + "s";
@@ -54,25 +53,17 @@ export default {
     },
 
     randomRGB(opacity) {
-      // return `rgba(${this.randomColor(10, 30)}, ${this.randomColor(
-      //   10,
-      //   30
-      // )}, ${this.randomColor(160, 215)}, ${opacity})`;
       return `rgba(
         ${this.randomColor(0, 200)}, 
       ${this.randomColor(204, 244)}, 
       ${this.randomColor(150, 230)}, ${opacity}
       )`;
     },
-
-    // 224, 212
   },
 };
 </script>
 
 <style lang="scss" scoped>
-// $randomNumber: random(10);
-
 .sparkle {
   position: absolute;
   width: 6px;

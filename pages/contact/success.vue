@@ -25,8 +25,6 @@
             align-self-center
           "
         >
-          <!-- <form-contact /> -->
-
           <div class="rounded-3 bg-c p-3 p-sm-4 p-xl-5">
             <div class="ms-1 mb-3">
               <i class="bi bi-envelope-open fs-2"></i>

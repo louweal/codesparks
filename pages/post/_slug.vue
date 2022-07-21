@@ -248,7 +248,6 @@ export default {
 
   methods: {
     getName(e) {
-      // console.log(e.target.value);
       this.name = e.target.value;
     },
   },
