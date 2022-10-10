@@ -34,6 +34,8 @@ export default {
   build: {},
 
   generate: {
+    fallback: true,
+
     routes: [
       "/post/jambo-bark-end-developer",
       "/post/helix-hedera-hackathon-2022",

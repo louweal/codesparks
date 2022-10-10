@@ -9,6 +9,8 @@ $primary: #191970;
 $secondary: #0be0d4; // rgba(0, 0, 0, 0.5); // #b185d6;
 $light: #acb3df;
 
+$enable-smooth-scroll: false;
+
 $body-bg: #191970; // linear-gradient(180deg, rgba(#191970, 1) 0%, rgba(#080830, 1) 100%);
 $body-color: #fff;
 $link-color: #fff;
@@ -85,7 +87,7 @@ $btn-close-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' v
 @import "@/node_modules/bootstrap/scss/navbar";
 @import "@/node_modules/bootstrap/scss/nav";
 @import "@/node_modules/bootstrap/scss/card";
-@import "@/node_modules/bootstrap/scss/dropdown";
+// @import "@/node_modules/bootstrap/scss/dropdown";
 @import "@/node_modules/bootstrap/scss/forms";
 @import "@/node_modules/bootstrap/scss/transitions";
 
