@@ -18,7 +18,7 @@ export default {
         hid: "description",
         name: "description",
         content:
-          "Anneloes Louwe | Front-end developer - UX designer - Hedera enthousiast ",
+          "Anneloes Louwe | Front-end developer - UX designer - Web3 enthousiast ",
       },
       { name: "format-detection", content: "telephone=no" },
     ],
@@ -36,9 +36,9 @@ export default {
   generate: {
     fallback: true,
 
-    routes: [
-      "/post/jambo-bark-end-developer",
-      "/post/helix-hedera-hackathon-2022",
-    ],
+    // routes: [
+    //   "/post/jambo-bark-end-developer",
+    //   "/post/helix-hedera-hackathon-2022",
+    // ],
   },
 };
