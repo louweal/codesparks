@@ -1,9 +1,16 @@
 {
   "title": "Projects",
   "content": [
-    "Here I show some projects I worked on in my spare time to learn new techniques and skills."
+    "These are my personal projects, which enabled me to learn new skills suchs as web3 development and 3D graphic design."
   ],
   "list": [
+    {
+      "title": "Fictron",
+      "content": "Fictron is a platform for fiction novels. Everyone can publish books on Fictron an everyone can read books. Unlike other platforms you don't have to pay for the books before reading, instead you pay while you read using micro-transactions implemented on the TRON network.",
+      "tech": ["tronweb", "solidity", "vue", "nuxt"],
+      "repo": "https://github.com/louweal/fictron",
+      "site": "https://fictron.codesparks.nl"
+    },
     {
       "title": "Hedera Helix",
       "content": "This dApp encourages long-term use of items and buying secondhand items by attaching a smart contract to each product, which contains a small additional deposit amount. 60% of this deposit is returned over time, 30% is given to a secondhand buyer and 10% is donated to an environmental charity.",
