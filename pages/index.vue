@@ -25,16 +25,7 @@
         </div>
 
         <div
-          class="
-            col-10
-            offset-1
-            col-sm-8
-            offset-sm-2
-            col-md-5
-            offset-md-1
-            col-xl-5
-            align-self-center
-          "
+          class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-5 offset-md-1 col-xl-5 align-self-center"
         >
           <div class="img-c">
             <img
@@ -57,55 +48,22 @@
           </div>
 
           <div class="row">
-            <template v-for="(p, i) in $options.projects.list">
-              <div
-                class="col-12 col-md-6 col-lg-4 mb-4"
-                :key="i"
-                v-if="i < numProjects"
-              >
-                <div class="card bg-c rounded-3 h-100">
-                  <div class="card-body">
-                    <h3 class="card-title">{{ p.title }}</h3>
-
-                    <div
-                      class="hstack gap-2 flex-wrap"
-                      style="row-gap: 0 !important"
-                      v-if="p.tech"
-                    >
-                      <div
-                        class="text-secondary fw-bold"
-                        v-for="(t, i) in p.tech"
-                        :key="i"
-                      >
-                        {{ t }}
-                      </div>
-                    </div>
-
-                    <p class="card-text">
-                      {{ p.content }}
-                    </p>
-                  </div>
-                  <div class="card-footer">
-                    <div class="hstack gap-3">
-                      <a :href="p.repo" target="_blank">
-                        <i class="bi bi-github fs-5 align-middle me-1"></i>
-                        <span class="align-middle">Github</span>
-                      </a>
-                      <a :href="p.site" target="_blank">
-                        <i class="bi bi-globe2 fs-5 align-middle me-1"></i>
-                        <span class="align-middle">Live site</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </template>
+            <div
+              class="col-12 col-md-6 col-lg-4 mb-4"
+              :key="i"
+              v-for="(p, i) in $options.projects.list.slice(
+                0,
+                $store.state.maxProjects
+              )"
+            >
+              <project :project="p" />
+            </div>
 
             <div
               class="text-center mt-3"
-              v-if="$options.projects.list.length > numProjects"
+              v-if="$options.projects.list.length > $store.state.maxProjects"
             >
-              <div class="btn btn-secondary" @click="loadMoreProjects">
+              <div class="btn btn-secondary" @click="loadMoreProjects()">
                 More projects
               </div>
             </div>
@@ -126,51 +84,30 @@
           <div class="row">
             <div
               class="col-12 col-md-6 mb-4"
-              v-for="(a, i) in $options.posts.list.slice(0, numPosts)"
+              v-for="(p, i) in $options.posts.list.slice(
+                0,
+                $store.state.maxPosts
+              )"
               :key="i"
             >
-              <nuxt-link
-                :to="`/post/${a.slug}`"
-                class="card bg-c rounded-3 h-100"
-              >
-                <div class="card-body">
-                  <div
-                    class="badge bg-secondary text-primary mb-1"
-                    v-if="a.badge"
-                  >
-                    {{ a.badge }}
-                  </div>
-
-                  <h3 class="card-title">{{ a.title }}</h3>
-
-                  <p class="card-text" v-if="a.intro">
-                    {{ a.intro }}
-                  </p>
-                </div>
-
-                <div class="card-footer">
-                  <i
-                    class="
-                      bi bi-arrow-right-short
-                      fs-5
-                      align-middle
-                      text-secondary
-                    "
-                  ></i>
-                  <span class="align-middle">Read more</span>
-                </div>
-              </nuxt-link>
+              <post :post="p" />
             </div>
 
             <div
               class="text-center mt-3"
-              v-if="$options.posts.list.length > numPosts"
+              v-if="$options.posts.list.length > $store.state.maxPosts"
             >
-              <div class="btn btn-secondary" @click="loadMorePosts">
+              <div class="btn btn-secondary" @click="loadMorePosts()">
                 More posts
               </div>
             </div>
           </div>
+
+          <!-- <div class="text-center mt-4" xxxv-if="feed.length > feedMax">
+            <div class="btn btn-secondary" xxxclick="feedMax += 9">
+              Load more
+            </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -193,12 +130,7 @@
         </div>
 
         <div
-          class="
-            col-12 col-md-7
-            offset-lg-1
-            col-lg-6 col-xl-5
-            align-self-center
-          "
+          class="col-12 col-md-7 offset-lg-1 col-lg-6 col-xl-5 align-self-center"
         >
           <form-contact />
         </div>
@@ -225,19 +157,16 @@ export default {
   socials,
   contact,
 
-  data() {
-    return {
-      numProjects: 6,
-      numPosts: 4,
-    };
-  },
-
   methods: {
     loadMoreProjects() {
-      this.numProjects += 3;
+      this.$store.commit(
+        "updateMaxProjects",
+        this.$store.state.maxProjects + 3
+      );
     },
+
     loadMorePosts() {
-      this.numPosts += 4;
+      this.$store.commit("updateMaxPosts", this.$store.state.maxPosts + 2);
     },
   },
 };

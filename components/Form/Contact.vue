@@ -63,7 +63,7 @@
         <input
           class="form-check-input me-2 bg-c"
           type="checkbox"
-          value=""
+          value="checked"
           name="privacy"
           id="privacy"
           required

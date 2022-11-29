@@ -1,8 +1,8 @@
 <template>
-  <div id="top">
+  <div id="app">
     <sparkles />
 
-    <navbar />
+    <Header />
 
     <div class="container-lg">
       <div class="row">

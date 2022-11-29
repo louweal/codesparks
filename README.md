@@ -2,6 +2,8 @@
 
 ## Build Setup
 
+On windows: $env:NODE_OPTIONS="--openssl-legacy-provider"
+
 ```bash
 # install dependencies
 $ npm install

@@ -1,18 +1,23 @@
 [
   {
-    "title": "Github",
-    "icon": "github",
-    "url": "https://www.github.com/louweal"
-  },
-  {
     "title": "LinkedIn",
     "icon": "linkedin",
     "url": "https://www.linkedin.com/in/anneloes-louwe/"
   },
   {
+    "title": "Github",
+    "icon": "github",
+    "url": "https://www.github.com/louweal"
+  },
+  {
     "title": "Dev.to",
     "icon": "dev",
     "url": "https://dev.to/louweal"
+  },
+  {
+    "title": "Devpost",
+    "icon": "devpost",
+    "url": "https://devpost.com/louweal"
   },
   {
     "title": "Codewars",

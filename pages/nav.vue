@@ -5,7 +5,10 @@
         <div class="align-self-center">
           <ul class="list-unstyled text-center">
             <li class="nav-item" v-for="(l, i) in $options.menu" :key="i">
-              <nuxt-link :to="l.url" class="nav-link fs-3">
+              <nuxt-link
+                :to="{ path: l.url, hash: l.hash }"
+                class="nav-link fs-3"
+              >
                 {{ l.title }}
               </nuxt-link>
             </li>

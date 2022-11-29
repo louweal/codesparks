@@ -22,15 +22,13 @@ export default {
       },
       { name: "format-detection", content: "telephone=no" },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }],
   },
 
   css: ["@/assets/css/main.scss"],
 
-  styleResources: {},
   components: true,
   buildModules: [],
-  modules: ["@nuxtjs/style-resources"],
   build: {},
 
   generate: {

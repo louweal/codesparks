@@ -1,20 +1,25 @@
 <template>
-  <main>
+  <main v-if="post">
     <div id="pushdown" class="w-100" style="height: 82px"></div>
 
     <section class="py-4">
       <div class="row">
         <div class="col-12 col-sm-8 offset-sm-2">
-          <div class="badge bg-secondary text-primary mb-3">
+          <!-- <div class="badge bg-secondary text-primary mb-3">
             {{ post.badge }}
-          </div>
+          </div> -->
+          <nuxt-link :to="{path: '/' , hash: '#posts'}">
+            <i class="bi bi-arrow-left-short text-secondary align-middle"></i>
+             Back
+          </nuxt-link>
+
 
           <h1 class="h2">{{ post.title }}</h1>
 
           <p>{{ post.date }}</p>
         </div>
 
-        <div class="col-12" v-if="post.visual">
+        <div class="col-12" v-if="post.visual && post.visual.url">
           <div class="ratio ratio-21x9 mt-3 mb-5">
             <img
               :src="require(`~/images/${post.visual.url}`)"
@@ -189,7 +194,7 @@
               :key="i"
             >
               <nuxt-link
-                :to="`/post/${a.slug}`"
+                :to="`/post/${a.post}`"
                 class="card bg-c rounded-3 h-100"
               >
                 <div class="card-body">
@@ -243,20 +248,31 @@ export default {
   data() {
     return {
       name: false,
+      post: undefined,
     };
   },
 
-  methods: {
-    getName(e) {
-      this.name = e.target.value;
-    },
+  fetch() {
+    this.validatePage();
   },
 
-  computed: {
-    post() {
-      return this.$options.posts.list.find(
-        (a) => a.slug === this.$route.params.slug
-      );
+  created() {
+    this.post = this.$options.posts.list.find(
+      (a) => a.slug === this.$route.params.slug
+    );
+  },
+
+  methods: {
+    validatePage() {
+      if (!this.post) {
+        return this.$nuxt.error({
+          statusCode: 404,
+          message: "Post not found",
+        });
+      }
+    },
+    getName(e) {
+      this.name = e.target.value;
     },
   },
 };

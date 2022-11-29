@@ -1,5 +1,5 @@
 <template>
-  <div class="row min-vh-100">
+  <div class="row min-vh-100" id="home">
     <div class="col-12 align-self-center">
       <h1 class="h3 text-secondary fw-normal lh-1">Hi, I'm</h1>
       <h1>Anneloes Louwe</h1>
@@ -16,7 +16,10 @@
         </p>
       </div>
 
-      <nuxt-link class="btn btn-secondary mb-4" to="#about">
+      <nuxt-link
+        class="btn btn-secondary mb-4"
+        :to="{ path: '/', hash: '#about' }"
+      >
         More about me
       </nuxt-link>
     </div>
