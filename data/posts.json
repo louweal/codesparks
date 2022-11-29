@@ -12,7 +12,7 @@
       "intro": "Learn more about why and how I created this decentralized app for the NEAR Metabuild 2022 Hackathon and what I achieved with it so far.",
       "visual": {
         "title": "NearPress",
-        "url": false
+        "url": "nearpress-hero.png"
       },
 
       "sections": [
@@ -63,7 +63,7 @@
       "intro": "Learn more about why and how I created this decentralized app for the TRON Season 3 Hackathon and what I achieved with it so far.",
       "visual": {
         "title": "Fictron",
-        "url": false
+        "url": "fictron-hero.png"
       },
 
       "sections": [
