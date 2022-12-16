@@ -5,7 +5,7 @@
       <h1>Anneloes Louwe</h1>
 
       <h2 class="h4 fw-light fs-6 mb-4 text-light">
-        Front-end developer | UX-designer | Web3 enthousiast
+        Front-end developer | UX-designer | Hedera enthousiast
       </h2>
 
       <div class="col-12 col-sm-9 col-md-5">
