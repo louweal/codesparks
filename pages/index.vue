@@ -29,7 +29,7 @@
         >
           <div class="img-c">
             <img
-              :src="require(`~/images/${$options.about.visual}`)"
+              :src="importAsset(`../assets/images/${$options.about.visual}`)"
               alt="anneloes"
               class="img-fluid rounded-3"
             />
@@ -53,7 +53,7 @@
               :key="i"
               v-for="(p, i) in $options.projects.list.slice(
                 0,
-                $store.state.maxProjects
+                numVisibleProjects
               )"
             >
               <project :project="p" />
@@ -61,7 +61,7 @@
 
             <div
               class="text-center mt-3"
-              v-if="$options.projects.list.length > $store.state.maxProjects"
+              v-if="$options.projects.list.length > numVisibleProjects"
             >
               <div class="btn btn-secondary" @click="loadMoreProjects()">
                 More projects
@@ -84,10 +84,7 @@
           <div class="row">
             <div
               class="col-12 col-md-6 mb-4"
-              v-for="(p, i) in $options.posts.list.slice(
-                0,
-                $store.state.maxPosts
-              )"
+              v-for="(p, i) in $options.posts.list.slice(0, numVisiblePosts)"
               :key="i"
             >
               <post :post="p" />
@@ -95,19 +92,13 @@
 
             <div
               class="text-center mt-3"
-              v-if="$options.posts.list.length > $store.state.maxPosts"
+              v-if="$options.posts.list.length > numVisiblePosts"
             >
               <div class="btn btn-secondary" @click="loadMorePosts()">
                 More posts
               </div>
             </div>
           </div>
-
-          <!-- <div class="text-center mt-4" xxxv-if="feed.length > feedMax">
-            <div class="btn btn-secondary" xxxclick="feedMax += 9">
-              Load more
-            </div>
-          </div> -->
         </div>
       </div>
     </section>
@@ -139,12 +130,13 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
 import about from "@/data/about.json";
 import projects from "@/data/projects.json";
 import posts from "@/data/posts.json";
 import socials from "@/data/socials.json";
 import contact from "@/data/contact.json";
+import { useVisibleItemsStore } from "@/stores/visibleItems";
 
 export default {
   name: "Main",
@@ -157,16 +149,29 @@ export default {
   socials,
   contact,
 
+  computed: {
+    numVisiblePosts() {
+      const store = useVisibleItemsStore();
+      return store.numVisiblePosts;
+    },
+    numVisibleProjects() {
+      const store = useVisibleItemsStore();
+      return store.numVisibleProjects;
+    },
+  },
+
   methods: {
+    importAsset(path: string) {
+      return new URL(path, import.meta.url).href;
+    },
     loadMoreProjects() {
-      this.$store.commit(
-        "updateMaxProjects",
-        this.$store.state.maxProjects + 3
-      );
+      const store = useVisibleItemsStore();
+      store.showMoreProjects(3);
     },
 
     loadMorePosts() {
-      this.$store.commit("updateMaxPosts", this.$store.state.maxPosts + 2);
+      const store = useVisibleItemsStore();
+      store.showMorePosts(2);
     },
   },
 };

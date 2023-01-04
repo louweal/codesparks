@@ -2,8 +2,8 @@
   <div class="row min-vh-100 max-vh-100 sticky-top">
     <div class="col align-self-center">
       <div class="vstack gap-3 align-items-center">
-        <template v-for="(s, i) in $options.socials">
-          <a :key="i" :href="s.url" target="_blank" class="fs-4">
+        <template v-for="s in socials" xxxkey="i">
+          <a :href="s.url" target="_blank" class="fs-4">
             <i :class="`bi bi-${s.icon} bi-24`"></i>
           </a>
         </template>
@@ -12,11 +12,13 @@
   </div>
 </template>
 
-<script>
-import socials from "@/data/socials.json";
-export default {
-  socials,
-};
-</script>
+<script setup lang="ts">
+import socialsData from "@/data/socials.json";
 
-<style lang="scss" scoped></style>
+interface Social {
+  url: string;
+  icon: string;
+}
+
+const socials: Social[] = socialsData;
+</script>

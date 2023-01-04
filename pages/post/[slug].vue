@@ -8,11 +8,10 @@
           <!-- <div class="badge bg-secondary text-primary mb-3">
             {{ post.badge }}
           </div> -->
-          <nuxt-link :to="{path: '/' , hash: '#posts'}">
+          <nuxt-link :to="{ path: '/', hash: '#posts' }">
             <i class="bi bi-arrow-left-short text-secondary align-middle"></i>
-             Back
+            Back
           </nuxt-link>
-
 
           <h1 class="h2">{{ post.title }}</h1>
 
@@ -20,9 +19,10 @@
         </div>
 
         <div class="col-12" v-if="post.visual && post.visual.url">
+          {{ post.visual.url }}
           <div class="ratio ratio-21x9 mt-3 mb-5">
             <img
-              :src="require(`~/images/${post.visual.url}`)"
+              :src="importAsset(`../../assets/images/${post.visual.url}`)"
               :alt="post.visual.title"
               class="img-fluid rounded-3"
             />
@@ -32,7 +32,10 @@
         <!-- </div> -->
 
         <div class="col-12 col-sm-8 offset-sm-2">
-          <template v-for="(section, index) in post.sections">
+          <template
+            v-for="(section, index) in post.sections"
+            :key="'c' + index"
+          >
             <h2 v-if="section.title" :key="'t' + index" class="h3">
               {{ section.title }}
             </h2>
@@ -40,7 +43,7 @@
             <template v-if="section.video">
               <video controls :key="'v' + index">
                 <source
-                  :src="require(`~/videos/${section.video.url}`)"
+                  :src="importAsset(`../../assets/videos/${section.video.url}`)"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
@@ -50,13 +53,13 @@
               </small>
             </template>
 
-            <p :key="'c' + index">
+            <p>
               {{ section.content }}
             </p>
 
             <div class="my-5 img-c" v-if="section.visual" :key="'i' + index">
               <img
-                :src="require(`~/images/${section.visual.url}`)"
+                :src="importAsset(`../../assets/images/${section.visual.url}`)"
                 alt="section.visual.name"
                 class="img-fluid rounded-3"
               />
@@ -215,12 +218,7 @@
 
                 <div class="card-footer">
                   <i
-                    class="
-                      bi bi-arrow-right-short
-                      fs-5
-                      align-middle
-                      text-secondary
-                    "
+                    class="bi bi-arrow-right-short fs-5 align-middle text-secondary"
                   ></i>
                   <span class="align-middle">Read more</span>
                 </div>
@@ -239,7 +237,7 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
 import posts from "@/data/posts.json";
 
 export default {
@@ -257,18 +255,32 @@ export default {
   },
 
   created() {
+    interface Post {
+      slug: string;
+    }
+
     this.post = this.$options.posts.list.find(
-      (a) => a.slug === this.$route.params.slug
+      (a: Post) => a.slug === this.$route.params.slug
     );
   },
 
   methods: {
+    importAsset(path: string) {
+      return new URL(path, import.meta.url).href;
+    },
+
     validatePage() {
       if (!this.post) {
-        return this.$nuxt.error({
+        throw createError({
           statusCode: 404,
-          message: "Post not found",
+          statusMessage: "Post not found",
+          fatal: true,
         });
+
+        // return this.$nuxt.error({
+        //   statusCode: 404,
+        //   message: "Post not found",
+        // });
       }
     },
     getName(e) {

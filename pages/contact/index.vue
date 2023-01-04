@@ -18,12 +18,7 @@
         </div>
 
         <div
-          class="
-            col-12 col-md-7
-            offset-lg-1
-            col-lg-6 col-xl-5
-            align-self-center
-          "
+          class="col-12 col-md-7 offset-lg-1 col-lg-6 col-xl-5 align-self-center"
         >
           <form-contact />
         </div>
@@ -32,7 +27,7 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
 import contact from "@/data/contact.json";
 import socials from "@/data/socials.json";
 

@@ -18,12 +18,7 @@
         </div>
 
         <div
-          class="
-            col-12 col-md-7
-            offset-lg-1
-            col-lg-6 col-xl-5
-            align-self-center
-          "
+          class="col-12 col-md-7 offset-lg-1 col-lg-6 col-xl-5 align-self-center"
         >
           <div class="rounded-3 bg-c p-3 p-sm-4 p-xl-5">
             <div class="ms-1 mb-3">
@@ -41,7 +36,7 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
 import contact from "@/data/contact.json";
 
 export default {

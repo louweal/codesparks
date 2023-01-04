@@ -36,15 +36,17 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    project: {
-      type: [Object, Array],
-      default: () => {},
-    },
-  },
-};
+<script lang="ts" setup>
+interface Project {
+  tech: string[];
+  title: string;
+  content: string;
+  repo: string;
+  site: string;
+}
+const props = defineProps<{
+  project: Project;
+}>();
 </script>
 
 <style lang="scss" scoped>

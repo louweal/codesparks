@@ -19,7 +19,7 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
 import menu from "@/data/menu.json";
 
 export default {

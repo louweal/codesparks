@@ -4,9 +4,9 @@
   >
     <div class="container-fluid">
       <nuxt-link to="/" event="" @click.native="scrollToTop()">
-        <img src="@/images/louweal.svg" alt="" width="134" height="38" />
+        <img src="@/assets/images/louweal.svg" alt="" width="134" height="38" />
       </nuxt-link>
-      <div
+      <!-- <div
         @click="$route.path === '/nav' ? $router.back() : $router.push('/nav')"
         class="navbar-toggler"
         aria-label="toggle pushmenu"
@@ -15,7 +15,7 @@
           class="navbar-toggler-icon"
           :class="$route.path === '/nav' ? 'navbar-toggler-icon-close' : false"
         ></span>
-      </div>
+      </div> -->
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
@@ -36,7 +36,7 @@
   </nav>
 </template>
 
-<script>
+<script lang="ts">
 import menu from "@/data/menu.json";
 
 export default {
@@ -48,7 +48,7 @@ export default {
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
         window.scrollTo({ top: 0, behavior: "auto" });
-        this.$router.push("/");
+        // this.$router.push("/");
       }
     },
   },

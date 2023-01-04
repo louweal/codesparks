@@ -7,7 +7,7 @@
     <div class="container-lg">
       <div class="row">
         <div class="col-12 col-sm-10 order-sm-last">
-          <Nuxt />
+          <slot />
 
           <div class="d-sm-none">
             <socials-mobile />
@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "Default",
 

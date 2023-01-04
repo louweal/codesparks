@@ -5,8 +5,8 @@
         :href="s.url"
         target="_blank"
         class="fs-4 d-block"
-        v-for="(s, i) in $options.socials"
-        :key="i"
+        v-for="s in socials"
+        xxxkey="i"
       >
         <i :class="`bi bi-${s.icon} bi-24`"></i>
       </a>
@@ -14,11 +14,15 @@
   </div>
 </template>
 
-<script>
-import socials from "@/data/socials.json";
-export default {
-  socials,
-};
+<script setup lang="ts">
+import socialsData from "@/data/socials.json";
+
+interface Social {
+  url: string;
+  icon: string;
+}
+
+const socials: Social[] = socialsData;
 </script>
 
 <style lang="scss" scoped>

@@ -12,7 +12,7 @@
   />
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "sparkle",
 
@@ -48,11 +48,11 @@ export default {
   },
 
   methods: {
-    randomColor(min, max) {
+    randomColor(min: number, max: number) {
       return min + Math.ceil(Math.random() * (max - min));
     },
 
-    randomRGB(opacity) {
+    randomRGB(opacity: number) {
       return `rgba(
         ${this.randomColor(0, 200)}, 
       ${this.randomColor(204, 244)}, 

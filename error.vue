@@ -3,8 +3,12 @@
     <section class="h-100">
       <div class="row min-vh-100 d-flex justify-content-center">
         <div class="col-sm-12 col-lg-6 align-self-center text-center">
+          {{ error.message }}
           <h1 class="text-secondary fs-2">
-            {{ error ? error.message : "Page not found" }} :(
+            {{
+              error.message ? error.message.split(":")[0] : "Page not found"
+            }}
+            :(
           </h1>
 
           <p>
@@ -17,7 +21,7 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   // transition: "page",
 
