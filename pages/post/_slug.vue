@@ -267,8 +267,6 @@ export default {
       let other = this.$options.posts.list.filter(
         (a) => a.slug != this.$route.params.slug
       );
-      console.log(other.length);
-
       return other.slice(0, other.length === 3 ? 2 : 4);
     },
   },

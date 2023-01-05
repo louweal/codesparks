@@ -6,7 +6,7 @@ export default function (to, from, savedPosition) {
       }, 400);
     });
   } else if (to.hash) {
-    console.log(document.querySelector(to.hash));
+    // console.log(document.querySelector(to.hash));
     return {
       selector: to.hash,
       behavior: "smooth",
