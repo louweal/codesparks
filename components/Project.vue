@@ -44,7 +44,8 @@ interface Project {
   repo: string;
   site: string;
 }
-const props = defineProps<{
+
+defineProps<{
   project: Project;
 }>();
 </script>

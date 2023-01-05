@@ -7,7 +7,7 @@
     <form
       name="contact"
       method="POST"
-      action="/contact/success"
+      action="/success"
       data-netlify="true"
       netlify
       netlify-honeypot="title"
@@ -83,19 +83,3 @@
     </form>
   </div>
 </template>
-
-<script lang="ts">
-export default {
-  data() {
-    return {
-      name: false, // contact form name input
-    };
-  },
-
-  methods: {
-    getName(e) {
-      this.name = e.target.value;
-    },
-  },
-};
-</script>

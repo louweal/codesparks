@@ -111,7 +111,7 @@
                 <form
                   name="comment"
                   method="POST"
-                  action="/success"
+                  action="/post/success"
                   data-netlify="true"
                   netlify
                   netlify-honeypot="title"
@@ -133,7 +133,6 @@
                       class="form-control bg-c"
                       name="name"
                       required
-                      @input="getName"
                     />
                     <label class="form-label" for="name">Name</label>
                   </div>
@@ -245,7 +244,6 @@ export default {
 
   data() {
     return {
-      name: false,
       post: undefined,
     };
   },
@@ -276,15 +274,7 @@ export default {
           statusMessage: "Post not found",
           fatal: true,
         });
-
-        // return this.$nuxt.error({
-        //   statusCode: 404,
-        //   message: "Post not found",
-        // });
       }
-    },
-    getName(e) {
-      this.name = e.target.value;
     },
   },
 };

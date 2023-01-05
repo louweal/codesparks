@@ -6,7 +6,7 @@
       <nuxt-link to="/" event="" @click.native="scrollToTop()">
         <img src="@/assets/images/louweal.svg" alt="" width="134" height="38" />
       </nuxt-link>
-      <!-- <div
+      <div
         @click="$route.path === '/nav' ? $router.back() : $router.push('/nav')"
         class="navbar-toggler"
         aria-label="toggle pushmenu"
@@ -15,11 +15,11 @@
           class="navbar-toggler-icon"
           :class="$route.path === '/nav' ? 'navbar-toggler-icon-close' : false"
         ></span>
-      </div> -->
+      </div>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item px-lg-2" v-for="(l, i) in $options.menu" :key="i">
+          <li class="nav-item px-lg-2" v-for="(l, i) in menu" :key="i">
             <nuxt-link :to="{ path: l.url, hash: l.hash }" class="nav-link">
               {{ l.title }}
             </nuxt-link>
@@ -36,23 +36,30 @@
   </nav>
 </template>
 
-<script lang="ts">
-import menu from "@/data/menu.json";
+<script setup lang="ts">
+import menuData from "@/data/menu.json";
+// import { useRoute } from "vue-router";
 
-export default {
-  menu,
+interface Menu {
+  title: string;
+  url: string;
+  hash: string;
+}
 
-  methods: {
-    scrollToTop() {
-      if (this.$route.path === "/") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        window.scrollTo({ top: 0, behavior: "auto" });
-        // this.$router.push("/");
-      }
-    },
-  },
-};
+const menu: Menu[] = menuData;
+
+function scrollToTop() {
+  const route = useRoute();
+  // console.log(route.path);
+  if (route) {
+    if (route.path === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "auto" });
+      // this.$router.push("/");
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

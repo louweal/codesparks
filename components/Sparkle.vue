@@ -12,55 +12,37 @@
   />
 </template>
 
-<script lang="ts">
-export default {
-  name: "sparkle",
+<script lang="ts" setup>
+import { computed, defineProps } from "vue";
 
-  props: {
-    min: {
-      type: Number,
-      default: 0,
-    },
-    max: {
-      type: Number,
-      default: 110,
-    },
-  },
+const props = defineProps({
+  min: { type: Number, default: 0 },
+  max: { type: Number, default: 110 },
+});
 
-  computed: {
-    randomGradient() {
-      return `radial-gradient( circle, ${this.randomRGB(
-        0.25
-      )} 0%, ${this.randomRGB(0.5)} 100%)`;
-    },
-    randomXPos() {
-      return Math.ceil(Math.random() * 100) + "%";
-    },
-    randomYPos() {
-      return this.min + Math.ceil(Math.random() * (this.max - this.min)) + "%";
-    },
-    randomSize() {
-      return 2 + Math.ceil(Math.random() * 6) + "px";
-    },
-    randomDelay() {
-      return Math.ceil(Math.random() * 15) + "s";
-    },
-  },
+const randomXPos = computed(() => Math.ceil(Math.random() * 100) + "%");
+const randomYPos = computed(
+  () => props.min + Math.ceil(Math.random() * (props.max - props.min)) + "%"
+);
+const randomDelay = computed(() => Math.ceil(Math.random() * 15) + "s");
+const randomSize = computed(() => 2 + Math.ceil(Math.random() * 6) + "px");
+const randomGradient = computed(() => {
+  return `radial-gradient( circle, ${randomRGB(0.25)} 0%, ${randomRGB(
+    0.5
+  )} 100%)`;
+});
 
-  methods: {
-    randomColor(min: number, max: number) {
-      return min + Math.ceil(Math.random() * (max - min));
-    },
+function randomColor(min: number, max: number): number {
+  return min + Math.ceil(Math.random() * (max - min));
+}
 
-    randomRGB(opacity: number) {
-      return `rgba(
-        ${this.randomColor(0, 200)}, 
-      ${this.randomColor(204, 244)}, 
-      ${this.randomColor(150, 230)}, ${opacity}
+function randomRGB(opacity: number): string {
+  return `rgba(
+        ${randomColor(0, 200)},
+      ${randomColor(204, 244)},
+      ${randomColor(150, 230)}, ${opacity}
       )`;
-    },
-  },
-};
+}
 </script>
 
 <style lang="scss" scoped>

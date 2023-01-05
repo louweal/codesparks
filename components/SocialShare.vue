@@ -25,20 +25,10 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  props: {
-    title: {
-      type: String,
-      default: "",
-      required: true,
-    },
-  },
+<script lang="ts" setup>
+defineProps<{
+  title: string;
+}>();
 
-  computed: {
-    domain() {
-      return "https://www.codesparks.nl";
-    },
-  },
-};
+const domain = "https://www.codesparks.nl";
 </script>

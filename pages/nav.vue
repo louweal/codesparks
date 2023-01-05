@@ -4,7 +4,7 @@
       <div class="row justify-content-center" style="min-height: 75vh">
         <div class="align-self-center">
           <ul class="list-unstyled text-center">
-            <li class="nav-item" v-for="(l, i) in $options.menu" :key="i">
+            <li class="nav-item" v-for="(l, i) in menu" :key="i">
               <nuxt-link
                 :to="{ path: l.url, hash: l.hash }"
                 class="nav-link fs-3"
@@ -19,10 +19,14 @@
   </main>
 </template>
 
-<script lang="ts">
-import menu from "@/data/menu.json";
+<script setup lang="ts">
+import menuData from "@/data/menu.json";
 
-export default {
-  menu,
-};
+interface Menu {
+  title: string;
+  url: string;
+  hash: string;
+}
+
+const menu: Menu[] = menuData;
 </script>

@@ -13,6 +13,8 @@ export default defineNuxtConfig({
     base: "/",
   },
   app: {
+    pageTransition: { name: "page", mode: "out-in" },
+
     head: {
       title: "Anneloes Louwe | Portfolio",
       htmlAttrs: {

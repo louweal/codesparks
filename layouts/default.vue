@@ -8,7 +8,6 @@
       <div class="row">
         <div class="col-12 col-sm-10 order-sm-last">
           <slot />
-
           <div class="d-sm-none">
             <socials-mobile />
           </div>
@@ -23,11 +22,3 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
-export default {
-  name: "Default",
-
-  transition: "page",
-};
-</script>

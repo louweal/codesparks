@@ -19,15 +19,17 @@
   </nuxt-link>
 </template>
 
-<script lang="ts">
-export default {
-  props: {
-    post: {
-      type: [Object, Array],
-      default: () => {},
-    },
-  },
-};
+<script lang="ts" setup>
+interface Post {
+  title: string;
+  intro: string;
+  badge: string;
+  slug: string;
+}
+
+defineProps<{
+  post: Post;
+}>();
 </script>
 
 <style lang="scss" scoped>

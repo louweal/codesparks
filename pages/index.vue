@@ -141,8 +141,6 @@ import { useVisibleItemsStore } from "@/stores/visibleItems";
 export default {
   name: "Main",
 
-  transition: "page",
-
   about,
   projects,
   posts,
@@ -176,5 +174,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped></style>
