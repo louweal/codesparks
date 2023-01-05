@@ -102,12 +102,6 @@
               </div>
             </div>
           </div>
-
-          <!-- <div class="text-center mt-4" xxxv-if="feed.length > feedMax">
-            <div class="btn btn-secondary" xxxclick="feedMax += 9">
-              Load more
-            </div>
-          </div> -->
         </div>
       </div>
     </section>

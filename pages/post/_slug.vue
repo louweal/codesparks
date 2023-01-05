@@ -5,14 +5,10 @@
     <section class="py-4">
       <div class="row">
         <div class="col-12 col-sm-8 offset-sm-2">
-          <!-- <div class="badge bg-secondary text-primary mb-3">
-            {{ post.badge }}
-          </div> -->
-          <nuxt-link :to="{path: '/' , hash: '#posts'}">
+          <nuxt-link :to="{ path: '/', hash: '#posts' }">
             <i class="bi bi-arrow-left-short text-secondary align-middle"></i>
-             Back
+            Back
           </nuxt-link>
-
 
           <h1 class="h2">{{ post.title }}</h1>
 
@@ -28,8 +24,6 @@
             />
           </div>
         </div>
-
-        <!-- </div> -->
 
         <div class="col-12 col-sm-8 offset-sm-2">
           <template v-for="(section, index) in post.sections">
@@ -62,6 +56,17 @@
               />
             </div>
           </template>
+
+          <div class="hstack gap-3">
+            <a :href="post.devpost" target="_blank" v-if="post.devpost">
+              <i class="bi bi-devpost bi-24 fs-5 align-middle me-1"></i>
+              <span class="align-middle">Devpost</span>
+            </a>
+            <a :href="post.site" target="_blank" v-if="post.site">
+              <i class="bi bi-globe2 fs-5 align-middle me-1"></i>
+              <span class="align-middle">Live site</span>
+            </a>
+          </div>
 
           <social-share :title="post.title" />
         </div>
@@ -108,7 +113,7 @@
                 <form
                   name="comment"
                   method="POST"
-                  action="/success"
+                  action="/post/success"
                   data-netlify="true"
                   netlify
                   netlify-honeypot="title"
@@ -130,7 +135,6 @@
                       class="form-control bg-c"
                       name="name"
                       required
-                      @input="getName"
                     />
                     <label class="form-label" for="name">Name</label>
                   </div>
@@ -180,21 +184,18 @@
       </div>
     </section>
 
-    <section class="h-100 py-5" v-if="$options.posts.list.length > 1">
+    <section class="h-100 py-5" v-if="otherPosts.length > 1">
       <div class="row min-vh-100">
         <div class="col-12 align-self-center">
           <h1 class="h2 mb-4">Latest posts</h1>
-
           <div class="row">
             <div
               class="col-12 col-md-6 mb-4"
-              v-for="(a, i) in $options.posts.list
-                .filter((a) => a.slug != $route.params.slug)
-                .slice(0, 4)"
+              v-for="(a, i) in otherPosts"
               :key="i"
             >
               <nuxt-link
-                :to="`/post/${a.post}`"
+                :to="`/post/${a.slug}`"
                 class="card bg-c rounded-3 h-100"
               >
                 <div class="card-body">
@@ -208,19 +209,13 @@
                   <h3 class="card-title">{{ a.title }}</h3>
 
                   <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    {{ a.intro }}
                   </p>
                 </div>
 
                 <div class="card-footer">
                   <i
-                    class="
-                      bi bi-arrow-right-short
-                      fs-5
-                      align-middle
-                      text-secondary
-                    "
+                    class="bi bi-arrow-right-short fs-5 align-middle text-secondary"
                   ></i>
                   <span class="align-middle">Read more</span>
                 </div>
@@ -228,8 +223,14 @@
             </div>
           </div>
 
-          <div class="text-center mt-3" v-if="$options.posts.list.length > 4">
-            <nuxt-link to="/posts" class="btn btn-secondary">
+          <div
+            class="text-center mt-3"
+            v-if="$options.posts.list.length > otherPosts.length"
+          >
+            <nuxt-link
+              :to="{ path: '/', hash: '#posts' }"
+              class="btn btn-secondary"
+            >
               All posts
             </nuxt-link>
           </div>
@@ -247,7 +248,6 @@ export default {
 
   data() {
     return {
-      name: false,
       post: undefined,
     };
   },
@@ -262,6 +262,17 @@ export default {
     );
   },
 
+  computed: {
+    otherPosts() {
+      let other = this.$options.posts.list.filter(
+        (a) => a.slug != this.$route.params.slug
+      );
+      console.log(other.length);
+
+      return other.slice(0, other.length === 3 ? 2 : 4);
+    },
+  },
+
   methods: {
     validatePage() {
       if (!this.post) {
@@ -270,9 +281,6 @@ export default {
           message: "Post not found",
         });
       }
-    },
-    getName(e) {
-      this.name = e.target.value;
     },
   },
 };

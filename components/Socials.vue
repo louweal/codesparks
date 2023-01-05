@@ -18,5 +18,3 @@ export default {
   socials,
 };
 </script>
-
-<style lang="scss" scoped></style>

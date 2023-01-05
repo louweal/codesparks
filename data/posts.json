@@ -9,7 +9,10 @@
       "badge": "project",
       "slug": "nearpress-journalism",
       "date": "24 November 2022",
-      "intro": "Learn more about why and how I created this decentralized app for the NEAR Metabuild 2022 Hackathon and what I achieved with it so far.",
+      "devpost": "https://devpost.com/software/nearpress",
+      "site": "https://nearpress.codesparks.nl",
+
+      "intro": "I'm currently working on this decentralized news platform, where readers can directly pay journalists after reading an article.",
       "visual": {
         "title": "NearPress",
         "url": "nearpress-hero.png"
@@ -18,12 +21,6 @@
       "sections": [
         {
           "content": "NearPress is a decentralized news platform. Readers can directly pay the journalists after reading an article. It's implemented using smart contract technology on the NEAR network. The articles are also stored on the InterPlanetary File System (IPFS), which makes them accessible from countries that censor the internet."
-        },
-        {
-          "video": {
-            "caption": "Pitch video",
-            "url": "nearpress.mp4"
-          }
         },
         {
           "title": "Inspiration",
@@ -52,6 +49,15 @@
         {
           "title": "What's next for NearPress",
           "content": "Hosting the website on IPFS, making the website fully production-ready by developing a solid back-end and developing a marketing strategy to attract journalists and readers."
+        },
+        {
+          "video": {
+            "caption": "Pitch video",
+            "url": "nearpress.mp4"
+          }
+        },
+        {
+          "content": "I submitted this project to the NEAR Metabuild Hackathon on Devpost. Check out the submission below or visit the Nearpress website."
         }
       ]
     },
@@ -60,7 +66,10 @@
       "badge": "project",
       "slug": "fictron-stories",
       "date": "16 November 2022",
-      "intro": "Learn more about why and how I created this decentralized app for the TRON Season 3 Hackathon and what I achieved with it so far.",
+      "devpost": "https://devpost.com/software/fictron",
+      "site": "https://fictron.codesparks.nl",
+
+      "intro": "I'm currently working on this decentralized book publishing platform, where readers can directly pay writers whilst reading their books.",
       "visual": {
         "title": "Fictron",
         "url": "fictron-hero.png"
@@ -68,13 +77,7 @@
 
       "sections": [
         {
-          "content": "FactoryFive is inspired by one of my favorite board games: Take5! I implemented this online game using Vue and Nuxt, to get more experience with building interactive apps. It's a single player game, so you play against a (very basic) computer algorithm. I'm planning to develop a (decentralized) multiplayer version in the near future."
-        },
-        {
-          "video": {
-            "caption": "Pitch video",
-            "url": "fictron.mp4"
-          }
+          "content": "Fictron is a platform for fiction novels. Everyone can publish books on Fictron an everyone can read books. Unlike other platforms you don't have to pay for the books before reading, instead you pay while you read using micro-transactions implemented on the TRON network."
         },
         {
           "title": "Inspiration",
@@ -99,6 +102,15 @@
         {
           "title": "What's next for Fictron",
           "content": "Making the app fully production-ready by developing a solid back-end and D=developing a good marketing strategy to attract writers and readers."
+        },
+        {
+          "video": {
+            "caption": "Pitch video",
+            "url": "fictron.mp4"
+          }
+        },
+        {
+          "content": "I submitted this project to the TRON Season 3 Hackathon on Devpost. Check out the submission below or visit the Fictron website."
         }
       ]
     },
@@ -119,11 +131,7 @@
           "content": "Since two months we have a junior bark-end developer named Jambo. He was only 9 weeks old when he started with us and it took him some days to develop his barks, but now he is a very good barker! Aside from barking he loves to be in the park and to play with other dogs. "
         },
         {
-          "content": "He also loves to work on this hunting skills with his toys – especially rubber chickens – or by chasing his tail. He can already destruct some toys within minutes! In his free time he enjoys sleeping with a lot of peeing and pooping in between. ;)",
-          "visual": {
-            "title": "Jambo 6 weeks old",
-            "url": "jam-visual.png"
-          }
+          "content": "He also loves to work on this hunting skills with his toys – especially rubber chickens – or by chasing his tail. He can already destruct some toys within minutes! In his free time he enjoys sleeping with a lot of peeing and pooping in between. ;)"
         },
         {
           "content": "Fun fact: he is a Schipperke, which is the smallest shepherd breed in the world which was previously used on ships to catch mice and other small animals. But they are also perfectly capable to assist (front-end) developers like me with their positive energy and cuteness. ;)"
@@ -131,8 +139,8 @@
         {
           "content": "We are extremely happy to have him on our team! He brings us a tons of happiness & fun and he keeps us healthy by taking us on many walks each day. Jambo adds even more sparkles to Codesparks!",
           "visual": {
-            "title": "Jambo",
-            "url": "jambo.jpg"
+            "title": "Jambo 6 weeks old",
+            "url": "jam-visual.png"
           }
         }
       ]
@@ -142,6 +150,9 @@
       "badge": "project",
       "slug": "helix-hedera-hackathon-2022",
       "date": "1 June 2022",
+      "devpost": "https://devpost.com/software/hedera-helix",
+      "site": "https://helix.codesparks.nl",
+
       "intro": "Learn more about why and how I created this decentralized app for the Hedera 2022 Hackathon and what I achieved with it so far.",
       "visual": {
         "title": "Hedera Helix",
@@ -151,12 +162,6 @@
       "sections": [
         {
           "content": "From March until May 2022 I have dedicated all my spare time into building a decentralised app (dApp) for the Hedera 2022 Hackathon. The goal of this hackathon was building the next game-changing decentralized application with scalable Solidity Smart Contracts on Hedera. Although I was already a big fan of the Hedera technology, I didn't built anything on Hedera yet, nor on any other technology in the web3/decentralized area for that matter. It turned out to be an even bigger challenge than I expected, but all my hard work paid of in the end. Surprisingly, my project was judged as first place winner in the Sustainability Challenge and in the Women for Web3 Challenge! Below you can watch the pitch video and read more about the project."
-        },
-        {
-          "video": {
-            "caption": "Pitch video",
-            "url": "helix.mp4"
-          }
         },
         {
           "title": "Where did your inspiration for this project come from?",
@@ -177,6 +182,15 @@
         {
           "title": "What are you the most proud of?",
           "content": "During this hackathon I learned to write smart contracts, I learned Solidity and learned to use Hedera SDK services. I’m also proud that I could use my recently learned UX and front-end skills to create a clean user interface for the dApp, which is optimized for use on mobile devices. This was also the first time in my life that I participated in a hackathon and without this hackathon I probably wouldn’t have been able to learn all these things in such a short amount of time."
+        },
+        {
+          "video": {
+            "caption": "Pitch video",
+            "url": "helix.mp4"
+          }
+        },
+        {
+          "content": "I submitted this project to the Hedera 2021 Hackathon on Devpost and won two prizes. Check out the submission below or visit the Helix website."
         }
       ]
     }
