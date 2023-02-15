@@ -75,19 +75,19 @@
     <section class="h-100 py-5" id="posts">
       <div class="row min-vh-100 align-self-center">
         <div class="col-12 align-self-center">
-          <h2 class="text-secondary">{{ $options.posts.title }}</h2>
+          <h2 class="text-secondary">Posts</h2>
 
           <div class="col-11 col-sm-8 col-md-6 col-lg-5 mb-5">
-            <p v-for="(p, i) in $options.posts.content" :key="i">{{ p }}</p>
+            <p>
+              Here I publish my thoughs, technical articles, updates and
+              everything in between.
+            </p>
           </div>
 
           <div class="row">
             <div
               class="col-12 col-md-6 mb-4"
-              v-for="(p, i) in $options.posts.list.slice(
-                0,
-                $store.state.maxPosts
-              )"
+              v-for="(p, i) in $options.posts.slice(0, $store.state.maxPosts)"
               :key="i"
             >
               <post :post="p" />
@@ -95,7 +95,7 @@
 
             <div
               class="text-center mt-3"
-              v-if="$options.posts.list.length > $store.state.maxPosts"
+              v-if="$options.posts.length > $store.state.maxPosts"
             >
               <div class="btn btn-secondary" @click="loadMorePosts()">
                 More posts
@@ -147,7 +147,7 @@ export default {
 
   about,
   projects,
-  posts,
+  posts: posts.filter((p) => p.publish === true),
   socials,
   contact,
 
