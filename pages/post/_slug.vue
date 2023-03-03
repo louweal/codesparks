@@ -225,7 +225,7 @@
 
           <div
             class="text-center mt-3"
-            v-if="$options.posts.list.length > otherPosts.length"
+            v-if="$options.posts.length > otherPosts.length"
           >
             <nuxt-link
               :to="{ path: '/', hash: '#posts' }"
@@ -257,14 +257,14 @@ export default {
   },
 
   created() {
-    this.post = this.$options.posts.list.find(
+    this.post = this.$options.posts.find(
       (a) => a.slug === this.$route.params.slug
     );
   },
 
   computed: {
     otherPosts() {
-      let other = this.$options.posts.list.filter(
+      let other = this.$options.posts.filter(
         (a) => a.slug != this.$route.params.slug
       );
       return other.slice(0, other.length === 3 ? 2 : 4);
