@@ -21,7 +21,6 @@
               {{ t }}
             </div>
           </div>
-          * I'm planning to use another headless CMS in the future
         </div>
 
         <div
@@ -41,17 +40,20 @@
     <section class="h-100 py-5" id="projects">
       <div class="row min-vh-100 align-self-center">
         <div class="col-12 align-self-center">
-          <h2 class="text-secondary">{{ $options.projects.title }}</h2>
+          <h2 class="text-secondary">Projects</h2>
 
           <div class="col-11 col-sm-8 col-md-6 col-lg-5 mb-5">
-            <p v-for="(p, i) in $options.projects.content" :key="i">{{ p }}</p>
+            <p>
+              These are my personal projects, which enabled me to learn new
+              skills suchs as web3 development and 3D graphic design.
+            </p>
           </div>
 
           <div class="row">
             <div
               class="col-12 col-md-6 col-lg-4 mb-4"
               :key="i"
-              v-for="(p, i) in $options.projects.list.slice(
+              v-for="(p, i) in $options.projects.slice(
                 0,
                 $store.state.maxProjects
               )"
@@ -61,10 +63,41 @@
 
             <div
               class="text-center mt-3"
-              v-if="$options.projects.list.length > $store.state.maxProjects"
+              v-if="$options.projects.length > $store.state.maxProjects"
             >
               <div class="btn btn-secondary" @click="loadMoreProjects()">
                 More projects
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="h-100 py-5" id="tools" v-if="$options.tools.length > 0">
+      <div class="row min-vh-100 align-self-center">
+        <div class="col-12 align-self-center">
+          <h2 class="text-secondary">Tools</h2>
+
+          <div class="col-11 col-sm-8 col-md-6 col-lg-5 mb-5">
+            <p>to do</p>
+          </div>
+
+          <div class="row">
+            <div
+              class="col-12 col-md-6 col-lg-4 mb-4"
+              :key="i"
+              v-for="(p, i) in $options.tools.slice(0, $store.state.maxTools)"
+            >
+              <tool :tool="p" />
+            </div>
+
+            <div
+              class="text-center mt-3"
+              v-if="$options.tools.length > $store.state.maxTools"
+            >
+              <div class="btn btn-secondary" @click="loadMoreTools()">
+                More tools
               </div>
             </div>
           </div>
@@ -136,6 +169,7 @@
 <script>
 import about from "@/data/about.json";
 import projects from "@/data/projects.json";
+import tools from "@/data/tools.json";
 import posts from "@/data/posts.json";
 import socials from "@/data/socials.json";
 import contact from "@/data/contact.json";
@@ -146,7 +180,8 @@ export default {
   transition: "page",
 
   about,
-  projects,
+  projects: projects.filter((p) => p.publish === true),
+  tools: tools.filter((p) => p.publish === true),
   posts: posts.filter((p) => p.publish === true),
   socials,
   contact,
@@ -157,6 +192,9 @@ export default {
         "updateMaxProjects",
         this.$store.state.maxProjects + 3
       );
+    },
+    loadMoreTools() {
+      this.$store.commit("updateMaxTools", this.$store.state.maxTools + 3);
     },
 
     loadMorePosts() {

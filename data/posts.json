@@ -1,5 +1,52 @@
 [
   {
+    "publish": true,
+    "title": "How to increase your Hedera staking rewards with 0.2%",
+    "badge": "blog",
+    "slug": "increase-staking-rewards",
+    "date": "25 February 2023",
+
+    "intro": "I'm currently working on this decentralized news platform, where readers can directly pay journalists after reading an article.",
+    "visual": {
+      "title": "Hedera $HBAR",
+      "url": false
+    },
+
+    "sections": [
+      {
+        "content": "Hedera native staking currently provides a 6.5% annualized percentage yield (APY) on your staked tokens. As per definition, APY takes into account the effect of compounding interest. However, the rewards you get from Hedera native staking don’t compound automatically. To compound your staking rewards, you must redeem the rewards daily, either manually by pressing 'collect rewards' or triggered through transactions you make.[1]"
+      },
+      {
+        "content": "If you redeem your rewards only once a year, your rewards don’t compound, meaning that you get rewards over your rewards. Instead you’ll get rewards over your staked tokens only, which is defined as the annualized percentage rate (APR). If we know the APR, we can compute the APY as follows:"
+      },
+      {
+        "content": "APY = (1 + (APR / Number of Periods))^(Number of Periods) – 1"
+      },
+      {
+        "content": "Knowing that Hedera native staking provides a 6.5% APY on staked tokens, we can use the formula to compute Hedera’s APR from the APY:"
+      },
+      {
+        "content": "(1 + (6.3 / 365.25))^(365.25) – 1 ≈ 6.5"
+      },
+      {
+        "content": "The formula above shows that Hedera currently provides an APR of 6.3%. In other words: by claiming your staking rewards on a daily basis instead of only once a year the total staking rewards you get in a year will increase from 6.3% to 6.5%!"
+      },
+      {
+        "title": "How to claim your rewards daily",
+        "content": "Any form of activity that involves your staking wallet triggers the staking mechanism to transfer your pending staking rewards to your staking wallet. In other words, you can (for example) collect your pending rewards by sending some hbar to your staking wallet every day. However, doing this manually costs a lot of time and unfortunately Hedera or Hashpack currently do not offer a tool to automate this."
+      },
+      {
+        "content": "Therefore I created a tool myself. First I created a JavaScript module that uses the Hedera Javascript SDK to create a transaction that transfers 1000 tinybar from my second wallet to my staking wallet. Next, I uploaded the script to AWS Lambda and attached an AWS Cloudwatch rule (CRON job) that triggers the script every day at 9pm (UTC). And that’s it!"
+      },
+      {
+        "content": "Feel free to use my code or just contact me to receive a daily transaction to claim your pending staking rewards!"
+      },
+      {
+        "content": "[1] https://www.hashpack.app/post/hedera-staking-rewards-faq-hashpack-web3-wallet"
+      }
+    ]
+  },
+  {
     "publish": false,
     "title": "A news platform for everyone, everywhere",
     "badge": "project",

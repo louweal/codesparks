@@ -1,51 +1,51 @@
-{
-  "title": "Projects",
-  "content": [
-    "These are my personal projects, which enabled me to learn new skills suchs as web3 development and 3D graphic design."
-  ],
-  "list": [
-    {
-      "title": "Fictron",
-      "content": "Fictron is a platform for fiction novels. Everyone can publish books on Fictron an everyone can read books. Unlike other platforms you don't have to pay for the books before reading, instead you pay while you read using micro-transactions implemented on the TRON network.",
-      "tech": ["TRON", "solidity", "vue", "nuxt", "bootstrap"],
-      "repo": "https://github.com/louweal/fictron",
-      "site": "https://fictron.codesparks.nl"
-    },
-    {
-      "title": "NearPress",
-      "content": "NearPress is a decentralized news platform. Readers can directly pay the journalists after reading an article. It's implemented using smart contract technology on the NEAR network. The articles are also stored on the InterPlanetary File System (IPFS), which makes them accessible from countries that censor the internet.",
-      "tech": ["NEAR", "ipfs", "bootstrap", "vue", "nuxt"],
-      "repo": "https://github.com/louweal/nearpress",
-      "site": "https://nearpress.codesparks.nl"
-    },
+[
+  {
+    "title": "Fictron",
+    "content": "Fictron is a platform for fiction novels. Everyone can publish books on Fictron an everyone can read books. Unlike other platforms you don't have to pay for the books before reading, instead you pay while you read using micro-transactions implemented on the TRON network.",
+    "tech": ["TRON", "solidity", "vue", "nuxt", "bootstrap"],
+    "repo": "https://github.com/louweal/fictron",
+    "site": "https://fictron.codesparks.nl",
+    "publish": false
+  },
+  {
+    "title": "NearPress",
+    "content": "NearPress is a decentralized news platform. Readers can directly pay the journalists after reading an article. It's implemented using smart contract technology on the NEAR network. The articles are also stored on the InterPlanetary File System (IPFS), which makes them accessible from countries that censor the internet.",
+    "tech": ["NEAR", "ipfs", "bootstrap", "vue", "nuxt"],
+    "repo": "https://github.com/louweal/nearpress",
+    "site": "https://nearpress.codesparks.nl",
+    "publish": false
+  },
 
-    {
-      "title": "FactoryFive",
-      "content": "FactoryFive is inspired by one of my favorite board games: Take5! I implemented this online game using Vue and Nuxt, to get more experience with building interactive apps. It's a single player game, so you play against a (very basic) computer algorithm. I'm planning to develop a (decentralized) multiplayer version in the near future.",
-      "tech": ["bootstrap", "vue", "nuxt"],
-      "repo": "https://github.com/louweal/factory-5",
-      "site": "https://factoryfive.codesparks.nl"
-    },
-    {
-      "title": "Codesparks",
-      "content": "Codesparks is my personal portfolio website, which I build with Vue and Nuxt. I built this new website because my old website was no longer reflecting my current UX design and web development skills and because it offered a good opportunity to learn Bootstrap.",
-      "tech": ["bootstrap", "scss", "vue", "nuxt"],
-      "repo": "https://github.com/louweal/codesparks",
-      "site": "https://www.codesparks.nl"
-    },
-    {
-      "title": "Hedera Helix",
-      "content": "This dApp encourages long-term use of items and buying secondhand items by attaching a smart contract to each product, which contains a small additional deposit amount. 60% of this deposit is returned over time, 30% is given to a secondhand buyer and 10% is donated to an environmental charity.",
-      "tech": ["hedera-sdk", "solidity", "vue", "nuxt"],
-      "repo": "https://github.com/louweal/helix",
-      "site": "https://helix.codesparks.nl"
-    },
-    {
-      "title": "The Hederian Mint",
-      "content": "The Hederian Mint is a website that showcases a small collection of 3-dimensional NFT’s representing digital HBAR coins. I started this project because I wanted to learn to create 3D art in Blender for a long time and because I wanted to create something cool for the Hedera community. So far I've sold 15 NFTs.",
-      "tech": ["vue", "nuxt", "scss", "blender", "figma"],
-      "repo": "https://github.com/louweal/thehederianmint",
-      "site": "https://www.thehederianmint.com"
-    }
-  ]
-}
+  {
+    "title": "FactoryFive",
+    "content": "FactoryFive is inspired by one of my favorite board games: Take5! I implemented this online game using Vue and Nuxt, to get more experience with building interactive apps. It's a single player game, so you play against a (very basic) computer algorithm. I'm planning to develop a (decentralized) multiplayer version in the near future.",
+    "tech": ["bootstrap", "vue", "nuxt"],
+    "repo": "https://github.com/louweal/factory-5",
+    "site": "https://factoryfive.codesparks.nl",
+    "publish": false
+  },
+  {
+    "title": "Codesparks",
+    "content": "Codesparks is my personal portfolio website, which I build with Vue and Nuxt. I built this new website because my old website was no longer reflecting my current UX design and web development skills and because it offered a good opportunity to learn Bootstrap.",
+    "tech": ["bootstrap", "scss", "vue", "nuxt"],
+    "repo": "https://github.com/louweal/codesparks",
+    "site": "https://www.codesparks.nl",
+    "publish": true
+  },
+  {
+    "title": "Hedera Helix",
+    "content": "This dApp encourages long-term use of items and buying secondhand items by attaching a smart contract to each product, which contains a small additional deposit amount. 60% of this deposit is returned over time, 30% is given to a secondhand buyer and 10% is donated to an environmental charity.",
+    "tech": ["hedera-sdk", "solidity", "vue", "nuxt"],
+    "repo": "https://github.com/louweal/helix",
+    "site": "https://helix.codesparks.nl",
+    "publish": true
+  },
+  {
+    "title": "The Hederian Mint",
+    "content": "The Hederian Mint is a website that showcases a small collection of 3-dimensional NFT’s representing digital HBAR coins. I started this project because I wanted to learn to create 3D art in Blender for a long time and because I wanted to create something cool for the Hedera community. So far I've sold 15 NFTs.",
+    "tech": ["vue", "nuxt", "scss", "blender", "figma"],
+    "repo": "https://github.com/louweal/thehederianmint",
+    "site": "https://www.thehederianmint.com",
+    "publish": true
+  }
+]

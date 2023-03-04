@@ -264,9 +264,8 @@ export default {
 
   computed: {
     otherPosts() {
-      let other = this.$options.posts.filter(
-        (a) => a.slug != this.$route.params.slug
-      );
+      let other = this.$options.posts.filter((a) => a.publish === true);
+      other = other.filter((a) => a.slug != this.$route.params.slug);
       return other.slice(0, other.length === 3 ? 2 : 4);
     },
   },
