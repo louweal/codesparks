@@ -103,12 +103,20 @@
     </form>
 
     <p v-if="submitted">
-      You had {{ balance }} HBAR on {{ formatDate(timestamp) }}
-      <span v-if="currency !== 'hbar'">
-        which was equal to {{ currentPrice[currency] * balance }}
-        {{ currency.toUpperCase() }} (HBAR price: {{ currentPrice[currency] }}
-        {{ currency.toUpperCase() }}). </span
-      ><span v-else>.</span>
+      You had <span class="text-secondary">{{ balance }} HBAR</span> on
+      <span class="text-light">{{ formatDate(timestamp) }}</span>
+      <span v-if="currency !== 'hbar' && balance > 0">
+        which was equal to
+        <span class="text-secondary"
+          >{{ currentPrice[currency] * balance }}
+          {{ currency.toUpperCase() }}</span
+        >
+        <span class="font-small d-block mt-2">
+          HBAR price: {{ currentPrice[currency] }}
+          {{ currency.toUpperCase() }}
+        </span>
+      </span>
+      <span v-else>.</span>
     </p>
   </div>
 </template>
@@ -118,7 +126,7 @@ export default {
   data() {
     return {
       date: "1-1-2023",
-      timestamp: new Date().getTime() / 1000,
+      timestamp: 0,
       accounts: "",
       balance: 0,
       currentPrice: undefined,
@@ -138,6 +146,12 @@ export default {
         let marketData = data["market_data"];
         this.currentPrice = marketData["current_price"];
       });
+
+    let splittedDate = this.date.split("-");
+    this.timestamp =
+      new Date(
+        `${splittedDate[2]}-${splittedDate[1]}-${splittedDate[0]}`
+      ).getTime() / 1000;
   },
 
   computed: {
@@ -208,7 +222,7 @@ export default {
     },
 
     formatDate(date) {
-      return new Date(date * 1000).toLocaleDateString("us-EN", {
+      return new Date(date * 1000).toLocaleDateString("us-GB", {
         day: "numeric",
         month: "long",
         year: "numeric",

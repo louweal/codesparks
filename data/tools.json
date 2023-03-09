@@ -12,7 +12,7 @@
   },
   {
     "title": "The HBAR Time Machine",
-    "content": "",
+    "content": "Use this machine to find out what your HBAR balance was on a specific date! ",
     "tech": ["hedera-rest-api", "coingecko-api"],
     "link": {
       "title": "Try it out",
@@ -24,7 +24,7 @@
   },
   {
     "title": "The HBAR Converter",
-    "content": "",
+    "content": "Use this converter to find out the historic or present worth of your HBAR.",
     "tech": ["hedera-rest-api", "coingecko-api"],
 
     "link": {
