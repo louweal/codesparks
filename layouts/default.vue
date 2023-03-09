@@ -25,7 +25,7 @@
         </div>
 
         <div
-          class="d-none d-sm-flex col-sm-1 order-sm-first max-vh-100 flex-column sticky-top"
+          class="d-none d-sm-flex col-sm-1 order-sm-first max-vh-100 flex-column sticky-top h-100 max-vh-100"
         >
           <socials />
         </div>
