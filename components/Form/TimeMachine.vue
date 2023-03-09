@@ -230,10 +230,8 @@ export default {
         .then((response) => response.text())
         .then(async (body) => {
           let data = JSON.parse(body);
-
           let marketData = data["market_data"];
           this.currentPrice = marketData["current_price"];
-          // console.log(Object.keys(this.currentPrice));
         });
     },
     setAccounts(e) {
@@ -241,7 +239,6 @@ export default {
         this.accounts = e.replaceAll(" ", "").split(";");
       } else {
         this.accounts = e;
-        // console.log(e);
       }
     },
     setDate(e) {
