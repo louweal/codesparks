@@ -242,5 +242,25 @@
         "content": "I submitted this project to the Hedera 2021 Hackathon on Devpost. Check out the submission below or visit the Helix website."
       }
     ]
+  },
+  {
+    "publish": true,
+
+    "title": "Launched NFT collection on Hedera!",
+    "badge": "project",
+    "slug": "launched-the-hederian-mint",
+    "date": "8 December 2021",
+    "intro": "The Hederian Mint is the first NFT collection on the Hedera network that offers 3 dimensional $HBAR coins.",
+    "site": "https://www.thehederianmint.com",
+    "visual": {
+      "title": "Hello 2022",
+      "url": "thm.png"
+    },
+
+    "sections": [
+      {
+        "content": "The supply of each NFT is limited. Don't miss out!"
+      }
+    ]
   }
 ]

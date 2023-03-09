@@ -1,7 +1,7 @@
 export const state = () => ({
-  maxPosts: 2,
-  maxProjects: 3,
-  maxTools: 3,
+  maxPosts: 4,
+  maxProjects: 6,
+  maxTools: 6,
 });
 
 export const mutations = {
