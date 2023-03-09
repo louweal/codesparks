@@ -2,6 +2,7 @@
   <nav
     class="navbar navbar-expand-lg navbar-dark text-white fixed-top p-md-3 px-lg-5"
   >
+    <div class="position-absolute header__bg w-100 h-100 top-0"></div>
     <div class="container-fluid">
       <nuxt-link to="/" event="" @click.native="scrollToTop()">
         <img src="@/images/louweal.svg" alt="" width="134" height="38" />
@@ -56,6 +57,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.header {
+  &__bg {
+    z-index: -1;
+    background: linear-gradient(
+      180deg,
+      rgba(#191970, 1) 30%,
+      rgba(#191970, 0) 100%
+    );
+  }
+}
 .navbar-toggler {
   border: none;
   box-shadow: none;

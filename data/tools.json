@@ -1,23 +1,38 @@
 [
   {
+    "title": "HASHCLAIM NFT",
+    "content": "HashClaim gives you the ability to get more out of your natively staked $HBAR. More info soon!",
+    "tech": ["hedera-sdk", "aws"],
+    "link": {
+      "title": "hashclaim-nft",
+      "icon": "twitter",
+      "url": "https://twitter.com/HashClaimNFT"
+    },
+    "publish": true
+  },
+  {
     "title": "The HBAR Time Machine",
-    "slug": "hbar-time-machine",
     "content": "",
-    "tech": ["Hedera REST API"],
-    "publish": false
+    "tech": ["hedera-rest-api", "coingecko-api"],
+    "link": {
+      "title": "Try it out",
+      "icon": "cursor-fill",
+      "slug": "hbar-time-machine"
+    },
+
+    "publish": true
   },
   {
-    "title": "The HBAR Graph",
-    "slug": "hbar-graph",
+    "title": "The HBAR Converter",
     "content": "",
-    "tech": ["Hedera REST API"],
-    "publish": false
-  },
-  {
-    "title": "The HBAR Stakers Tool",
-    "slug": "hbar-stakers-tool",
-    "content": "",
-    "tech": ["Hedera Javascript SDK", "AWS"],
-    "publish": false
+    "tech": ["hedera-rest-api", "coingecko-api"],
+
+    "link": {
+      "title": "Try it out",
+      "icon": "cursor-fill",
+      "slug": "hbar-converter"
+    },
+
+    "publish": true
   }
 ]

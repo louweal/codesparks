@@ -17,8 +17,7 @@ export default {
       {
         hid: "description",
         name: "description",
-        content:
-          "Anneloes Louwe | Front-end developer - UX designer - Web3 enthousiast ",
+        content: "Front-end developer, UX designer & Hedera enthusiast ",
       },
       { name: "format-detection", content: "telephone=no" },
     ],
@@ -26,6 +25,10 @@ export default {
   },
 
   css: ["@/assets/css/main.scss"],
+
+  messages: {
+    error_404: "Page not found",
+  },
 
   components: true,
   buildModules: [],

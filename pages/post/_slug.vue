@@ -4,7 +4,7 @@
 
     <section class="py-4">
       <div class="row">
-        <div class="col-12 col-sm-8 offset-sm-2">
+        <div class="col-12 col-sm-8 col-md-6 offset-sm-2">
           <nuxt-link :to="{ path: '/', hash: '#posts' }">
             <i class="bi bi-arrow-left-short text-secondary align-middle"></i>
             Back
@@ -12,7 +12,7 @@
 
           <h1 class="h2">{{ post.title }}</h1>
 
-          <p>{{ post.date }}</p>
+          <p class="font-small">{{ post.date }}</p>
         </div>
 
         <div class="col-12" v-if="post.visual && post.visual.url">

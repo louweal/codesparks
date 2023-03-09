@@ -3,6 +3,10 @@
     <div class="card-body">
       <h3 class="card-title">{{ tool.title }}</h3>
 
+      <p class="card-text">
+        {{ tool.content }}
+      </p>
+
       <div
         class="hstack gap-2 flex-wrap"
         style="row-gap: 0 !important"
@@ -16,22 +20,22 @@
           {{ t }}
         </div>
       </div>
-
-      <p class="card-text">
-        {{ tool.content }}
-      </p>
     </div>
-    <div class="card-footer">
-      <div class="hstack gap-3">
-        <!-- <a :href="tool.repo" target="_blank" v-if="tool.repo">
-          <i class="bi bi-github fs-5 align-middle me-1"></i>
-          <span class="align-middle">Github</span>
-        </a> -->
-        <nuxt-link :to="tool.slug">
-          <i class="bi bi-globe2 fs-5 align-middle me-1"></i>
-          <span class="align-middle">Try it out</span>
-        </nuxt-link>
-      </div>
+    <div class="card-footer" v-if="tool.link">
+      <nuxt-link :to="'tool/' + tool.link.slug" v-if="tool.link.slug">
+        <i
+          class="bi fs-5 align-middle me-1"
+          :class="`bi-${tool.link.icon}`"
+        ></i>
+        <span class="align-middle">{{ tool.link.title }}</span>
+      </nuxt-link>
+      <a :href="tool.link.url" v-if="tool.link.url" target="_blank">
+        <i
+          class="bi fs-5 align-middle me-1"
+          :class="`bi-${tool.link.icon}`"
+        ></i>
+        <span class="align-middle">{{ tool.link.title }}</span>
+      </a>
     </div>
   </div>
 </template>

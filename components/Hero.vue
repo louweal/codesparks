@@ -5,7 +5,7 @@
       <h1>Anneloes Louwe</h1>
 
       <h2 class="h4 fw-light fs-6 mb-4 text-light">
-        Front-end developer | UX-designer | Hedera enthousiast
+        Front-end developer | UX-designer | Hedera enthusiast
       </h2>
 
       <div class="col-12 col-sm-9 col-md-5">
@@ -20,7 +20,7 @@
         class="btn btn-secondary mb-4"
         :to="{ path: '/', hash: '#about' }"
       >
-        More about me
+        About me
       </nuxt-link>
     </div>
   </div>

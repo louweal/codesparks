@@ -80,7 +80,10 @@
           <h2 class="text-secondary">Tools</h2>
 
           <div class="col-11 col-sm-8 col-md-6 col-lg-5 mb-5">
-            <p>to do</p>
+            <p>
+              These are some tools I build for my fellow Hederians /
+              HBARbarians.
+            </p>
           </div>
 
           <div class="row">

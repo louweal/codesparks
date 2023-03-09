@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-content-center mb-4">
-    <div class="hstack gap-3 d-flex align-items-center">
+    <div class="hstack gap-3 d-flex align-items-center justify-content-center">
       <a
         :href="s.url"
         target="_blank"

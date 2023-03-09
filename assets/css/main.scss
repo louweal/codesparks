@@ -22,7 +22,7 @@ $link-hover-color: $light;
 // Typography
 $font-family-base: "Ubuntu", sans-serif;
 $font-size-base: 1rem;
-$line-height-base: 1.7;
+$line-height-base: 1.58; //1.7
 
 // navbar
 $navbar-dark-color: #fff;
@@ -70,6 +70,13 @@ $input-focus-bg: auto;
 $form-check-input-border: none;
 $form-check-input-width: 1.4em;
 $form-check-input-checked-bg-color: auto;
+
+// $form-select-bg: red;
+
+// $form-select-border-width: 0;
+$form-select-focus-border-color: transparent;
+$form-select-indicator-color: #eee;
+$form-select-focus-box-shadow: 0 0 0 0 #fff;
 
 $btn-close-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#ffffff'><path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/></svg>");
 
@@ -132,9 +139,7 @@ a.card:hover {
 .btn-secondary {
   transition: background-color 0.24s ease-in-out;
 
-  &:hover,
-  &:active:hover,
-  &:focus {
+  &:hover {
     background-color: $light;
   }
 }
@@ -199,6 +204,10 @@ a.bg-c {
 
 a i.bi {
   display: inline-block;
+  &:hover {
+    filter: brightness(0) invert(79%) sepia(6%) saturate(1572%)
+      hue-rotate(195deg) brightness(90%) contrast(93%);
+  }
 }
 
 // custom icons
@@ -234,3 +243,43 @@ a i.bi {
   background-position: center;
   background-image: url("@/images/dev.svg");
 }
+
+.form-floating > .form-control:focus {
+  &::placeholder {
+    color: rgba(#fff, 0.5) !important;
+  }
+}
+
+.font-small {
+  font-size: 14px;
+}
+
+.form-select {
+  option {
+    background-color: rgba($primary, 0.8) !important;
+    cursor: pointer;
+  }
+}
+
+select:focus {
+  outline: none;
+}
+
+// .input-text-c {
+//   position: relative;
+
+//   &::after {
+//     position: absolute;
+//     bottom: 0;
+//     width: 100%;
+//     height: 100%;
+//     display: flex;
+//     justify-content: flex-end;
+//     text-align: right;
+//     color: $secondary;
+//     content: "Today";
+//     padding: $form-floating-padding-x $form-floating-padding-y;
+//     // z-index: 3;
+//     // background-color: pink;
+//   }
+// }

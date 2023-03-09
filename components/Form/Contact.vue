@@ -76,9 +76,29 @@
       </div>
 
       <!-- Submit button -->
-      <button type="submit" class="btn btn-secondary btn-block mb-4">
+      <button
+        type="submit"
+        class="btn btn-secondary btn-block mb-4"
+        @click="toggleForm"
+        event=""
+      >
         Send
       </button>
     </form>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      showForm: true,
+    };
+  },
+  methods: {
+    toggleForm() {
+      this.showForm = !this.showForm;
+    },
+  },
+};
+</script>
