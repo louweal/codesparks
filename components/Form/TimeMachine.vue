@@ -28,10 +28,11 @@
           type="text"
           id="date"
           class="form-control bg-c"
-          :class="inFuture() ? 'text-danger' : false"
+          :class="inFuture() || !validDate() ? 'text-danger' : false"
           name="date"
           placeholder="DD-MM-YYYY"
-          value="1-1-2023"
+          :value="date"
+          @input="(e) => setDate(e.target.value)"
           required
         />
         <label class="form-label" for="date">Date</label>
@@ -42,9 +43,14 @@
         >
           Today
         </div> -->
-        <span class="text-danger" v-if="inFuture()"
-          >You can't use future dates</span
-        >
+        <p class="text-danger">
+          <span class="text-danger" v-if="inFuture()">
+            Unfortunately, the time machine can't see into the future.
+          </span>
+          <span v-if="!validDate()"
+            >Invalid date format. Use format: DD-MM-YYY</span
+          >
+        </p>
       </div>
 
       <!-- Account input -->
@@ -54,11 +60,21 @@
           type="text"
           id="accounts"
           class="form-control bg-c"
+          :class="validAccounts() !== true ? 'text-danger' : false"
           name="accounts"
           placeholder="0.0.123450; 0.0.456780"
+          @input="(e) => setAccounts(e.target.value)"
           required
         />
         <label class="form-label" for="accounts">Account id(s)</label>
+
+        <p class="text-danger" v-if="validAccounts() !== true">
+          <span v-if="accounts.length === 1"> Invalid Account ID </span>
+
+          <span v-else>
+            Account ID {{ this.accounts[validAccounts()] }} is invalid
+          </span>
+        </p>
       </div>
 
       <div class="form-floating mb-4" v-if="currentPrice">
@@ -77,15 +93,21 @@
       </div>
 
       <!-- Submit button -->
-      <button type="submit" class="btn btn-secondary btn-block mb-4">Go</button>
+      <button
+        type="submit"
+        class="btn btn-secondary btn-block mb-4"
+        :disabled="disableForm()"
+      >
+        Go
+      </button>
     </form>
 
     <p v-if="submitted">
       You had {{ balance }} HBAR on {{ formatDate(timestamp) }}
       <span v-if="currency !== 'hbar'">
         which was equal to {{ currentPrice[currency] * balance }}
-        {{ currency.toUpperCase() }} (1 HBAR was worth
-        {{ currentPrice[currency] }} {{ currency.toUpperCase() }}). </span
+        {{ currency.toUpperCase() }} (HBAR price: {{ currentPrice[currency] }}
+        {{ currency.toUpperCase() }}). </span
       ><span v-else>.</span>
     </p>
   </div>
@@ -95,9 +117,9 @@
 export default {
   data() {
     return {
-      date: "",
+      date: "1-1-2023",
       timestamp: new Date().getTime() / 1000,
-      accounts: undefined,
+      accounts: "",
       balance: 0,
       currentPrice: undefined,
       currency: "hbar",
@@ -145,10 +167,10 @@ export default {
     },
     async onSubmit() {
       this.submitted = false;
-      let accounts = this.$refs["accounts"].value;
-      let date = this.$refs["date"].value;
-      this.setAccounts(accounts);
-      this.setDate(date);
+      // let accounts = this.$refs["accounts"].value;
+      // let date = this.$refs["date"].value;
+      // this.setAccounts(accounts);
+      // this.setDate(date);
 
       this.currency = this.$refs["currency"].value;
 
@@ -170,8 +192,19 @@ export default {
       this.submitted = true;
     },
 
-    validAccount(account) {
-      return account.startsWith("0.0.");
+    validAccounts() {
+      if (typeof this.accounts === "string" && this.accounts.length >= 4) {
+        return this.accounts.startsWith("0.0.");
+      }
+      for (let i = 0; i < this.accounts.length; i++) {
+        if (
+          this.accounts[i].length >= 4 &&
+          !this.accounts[i].startsWith("0.0.")
+        ) {
+          return i;
+        }
+      }
+      return true;
     },
 
     formatDate(date) {
@@ -182,13 +215,17 @@ export default {
       });
     },
 
+    disableForm() {
+      return !this.validDate() || this.inFuture() || !this.validAccounts();
+    },
+
     async fetchPrice() {
       // fetches hbar prices on given date
       let url = `https://api.coingecko.com/api/v3/coins/hedera-hashgraph/history?date=${this.date}`; // hedera-hashgraph/history?date=1-1-2023"
-      if (this.inFuture()) {
-        // date lies in future
-        return;
-      }
+      // if (!this.validDate() || this.inFuture()) {
+      //   // date lies in future or is invalid
+      //   return;
+      // }
       await fetch(url)
         .then((response) => response.text())
         .then(async (body) => {
@@ -201,15 +238,16 @@ export default {
     },
     setAccounts(e) {
       if (e.includes(";")) {
-        this.accounts = e.replace(" ", "").split(";");
+        this.accounts = e.replaceAll(" ", "").split(";");
       } else {
         this.accounts = e;
-        console.log(e);
+        // console.log(e);
       }
     },
     setDate(e) {
-      if (this.validDate(e)) {
-        this.date = e;
+      this.date = e;
+
+      if (this.validDate()) {
         let timestamp = e.split("-");
         this.timestamp =
           new Date(
@@ -222,9 +260,9 @@ export default {
       return new Date(this.timestamp * 1000) > new Date();
     },
 
-    validDate(d) {
+    validDate() {
       let re = /^(0?[1-9]|[12][0-9]|3[01])[\-](0?[1-9]|1[012])[\-]\d{4}$/;
-      return re.test(d);
+      return re.test(this.date);
     },
   },
 };

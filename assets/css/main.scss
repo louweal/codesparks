@@ -256,7 +256,9 @@ a i.bi {
 
 .form-select {
   option {
-    background-color: rgba($primary, 0.8) !important;
+    outline: none !important;
+    border-width: 0px !important;
+    background-color: $primary !important;
     cursor: pointer;
   }
 }
