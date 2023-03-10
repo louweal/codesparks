@@ -1,40 +1,56 @@
 <template>
-  <nav
-    class="navbar navbar-expand-lg navbar-dark text-white fixed-top p-md-3 px-lg-5"
-  >
+  <div id="header" ref="header" class="header w-100 pb-3 mb-lg-3 fixed-top">
     <div class="position-absolute header__bg w-100 h-100 top-0"></div>
-    <div class="container-fluid">
-      <nuxt-link to="/" event="" @click.native="scrollToTop()">
-        <img src="@/images/louweal.svg" alt="" width="134" height="38" />
-      </nuxt-link>
-      <div
-        @click="$route.path === '/nav' ? $router.back() : $router.push('/nav')"
-        class="navbar-toggler"
-        aria-label="toggle pushmenu"
-      >
-        <span
-          class="navbar-toggler-icon"
-          :class="$route.path === '/nav' ? 'navbar-toggler-icon-close' : false"
-        ></span>
-      </div>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item px-lg-2" v-for="(l, i) in $options.menu" :key="i">
-            <nuxt-link :to="{ path: l.url, hash: l.hash }" class="nav-link">
-              {{ l.title }}
-            </nuxt-link>
-          </li>
+    <div class="px-4 pe-3 pe-lg-4">
+      <div class="d-flex justify-content-between pt-3 pt-lg-g4">
+        <div>
+          <nuxt-link to="/" event="" @click.native="scrollToTop()">
+            <img
+              src="@/images/louweal.svg"
+              alt="home"
+              width="134"
+              height="38"
+            />
+          </nuxt-link>
+        </div>
+        <div>
+          <div class="d-none d-lg-block">
+            <ul class="list-inline">
+              <li
+                class="list-inline-item px-lg-2"
+                v-for="(l, i) in $options.menu"
+                :key="i"
+              >
+                <nuxt-link :to="{ path: l.url, hash: l.hash }" class="nav-link">
+                  {{ l.title }}
+                </nuxt-link>
+              </li>
 
-          <li class="ms-lg-4 mt-4 mt-lg-0">
-            <a class="btn btn-secondary" href="/resume.pdf" target="_blank">
-              Resume
-            </a>
-          </li>
-        </ul>
+              <li class="list-inline-item ms-lg-4 mt-4 mt-lg-0">
+                <a class="btn btn-secondary" href="/resume.pdf" target="_blank">
+                  Resume
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="d-lg-none text-white"
+            @click="
+              $route.path === '/nav' ? $router.back() : $router.push('/nav')
+            "
+          >
+            <i
+              class="bi lh-1"
+              style="font-size: 38px"
+              :class="$route.path === '/nav' ? 'bi-x-lg' : 'bi-list'"
+            ></i>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
+  </div>
 </template>
 
 <script>
@@ -42,6 +58,20 @@ import menu from "@/data/menu.json";
 
 export default {
   menu,
+
+  data() {
+    return {
+      prevPosY: 0,
+    };
+  },
+
+  mounted() {
+    window.addEventListener("scroll", this.aosHeader);
+  },
+
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.aosHeader);
+  },
 
   methods: {
     scrollToTop() {
@@ -52,12 +82,55 @@ export default {
         this.$router.push("/");
       }
     },
+    togglePushmenu() {
+      document.body.classList.toggle("disable-scroll");
+      this.$store.commit("togglePushmenu");
+    },
+
+    aosHeader() {
+      let header = this.$refs["header"];
+
+      if (header) {
+        let scrollY = window.pageYOffset;
+        let direction = scrollY > this.prevPosY ? "down" : "up";
+
+        if (
+          direction === "down" &&
+          scrollY > 0 &&
+          !header.classList.contains("move-up")
+        ) {
+          header.classList.remove("move-down");
+          header.classList.add("move-up");
+        }
+
+        if (direction === "up" && !header.classList.contains("move-down")) {
+          header.classList.remove("move-up");
+          header.classList.add("move-down");
+        }
+
+        // update previous scroll positon
+        this.prevPosY = window.scrollY;
+      }
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.move-up {
+  transform: translateY(-100%);
+  background-color: transparent;
+}
+
+.move-down {
+  transform: translateY(0);
+}
+
 .header {
+  z-index: 2000;
+  background-color: transparent;
+  transition: all 0.4s cubic-bezier(0.2, 0, 0.1, 1); //ease-in-out;
+
   &__bg {
     z-index: -1;
     background: linear-gradient(
@@ -66,23 +139,5 @@ export default {
       rgba(#191970, 0) 100%
     );
   }
-}
-.navbar-toggler {
-  border: none;
-  box-shadow: none;
-  padding: 0;
-}
-
-.navbar-toggler-icon {
-  width: 2.25rem;
-}
-
-$btn-close-color: #fff;
-$btn-close-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/></svg>");
-
-.navbar-toggler-icon-close {
-  width: 1.3rem;
-  height: 1.3rem;
-  background-image: $btn-close-bg;
 }
 </style>

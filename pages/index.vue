@@ -149,7 +149,7 @@
 
           <p v-for="(p, i) in $options.contact.content" :key="i">{{ p }}</p>
 
-          <div class="row xxxmb-3">
+          <div class="row">
             <div class="col-6" v-for="(s, i) in $options.socials" :key="i">
               <a :href="s.url" target="_blank">
                 <i :class="`bi bi-${s.icon} bi-16 me-2 align-middle`"></i>
