@@ -2,8 +2,8 @@
   <main>
     <hero />
 
-    <section class="h-100 py-5" id="about">
-      <div class="row min-vh-100">
+    <section id="about">
+      <div class="row min-vh-100 py-5">
         <div class="col-12 col-md-6 align-self-center mb-5 mb-md-0">
           <h2 class="text-secondary">{{ $options.about.title }}</h2>
 
@@ -37,8 +37,8 @@
       </div>
     </section>
 
-    <section class="h-100 py-5" id="projects">
-      <div class="row min-vh-100 align-self-center">
+    <section id="projects">
+      <div class="row min-vh-100 py-5">
         <div class="col-12 align-self-center">
           <h2 class="text-secondary">Projects</h2>
 
@@ -74,8 +74,8 @@
       </div>
     </section>
 
-    <section class="h-100 py-5" id="tools" v-if="$options.tools.length > 0">
-      <div class="row min-vh-100 align-self-center">
+    <section id="tools" v-if="$options.tools.length > 0">
+      <div class="row min-vh-100 py-5">
         <div class="col-12 align-self-center">
           <h2 class="text-secondary">Tools</h2>
 
@@ -108,8 +108,8 @@
       </div>
     </section>
 
-    <section class="h-100 py-5" id="posts">
-      <div class="row min-vh-100 align-self-center">
+    <section id="posts">
+      <div class="row min-vh-100 py-5">
         <div class="col-12 align-self-center">
           <h2 class="text-secondary">Posts</h2>
 
@@ -142,14 +142,14 @@
       </div>
     </section>
 
-    <section class="h-100 py-5" id="contact">
-      <div class="row min-vh-100">
+    <section id="contact">
+      <div class="row min-vh-100 py-5">
         <div class="col-12 col-md-5 align-self-center mb-5 mb-md-0">
           <h2 class="text-secondary">{{ $options.contact.title }}</h2>
 
           <p v-for="(p, i) in $options.contact.content" :key="i">{{ p }}</p>
 
-          <div class="row mb-3">
+          <div class="row xxxmb-3">
             <div class="col-6" v-for="(s, i) in $options.socials" :key="i">
               <a :href="s.url" target="_blank">
                 <i :class="`bi bi-${s.icon} bi-16 me-2 align-middle`"></i>
