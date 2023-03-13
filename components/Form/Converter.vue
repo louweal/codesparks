@@ -80,7 +80,7 @@
             Unfortunately, the time machine can't see into the future.
           </span>
           <span v-if="!validDate()"
-            >Invalid date format. Use format: DD-MM-YYY</span
+            >Invalid date format. Use format: DD-MM-YYYY</span
           >
         </p>
       </div>
@@ -136,11 +136,18 @@ export default {
         this.currentPrice = marketData["current_price"];
       });
 
-    let splittedDate = this.date.split("-");
-    this.timestamp =
-      new Date(
-        `${splittedDate[2]}-${splittedDate[1]}-${splittedDate[0]}`
-      ).getTime() / 1000;
+    this.timestamp = new Date() / 1000;
+    let date = new Date(new Date());
+
+    this.date = `${date.getDate()}-${
+      date.getMonth() + 1
+    }-${date.getFullYear()}`;
+
+    // let splittedDate = this.date.split("-");
+    // this.timestamp =
+    //   new Date(
+    //     `${splittedDate[2]}-${splittedDate[1]}-${splittedDate[0]}`
+    //   ).getTime() / 1000;
   },
 
   computed: {

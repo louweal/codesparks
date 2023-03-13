@@ -62,9 +62,15 @@
               <i class="bi bi-devpost bi-24 fs-5 align-middle me-1"></i>
               <span class="align-middle">Devpost</span>
             </a>
-            <a :href="post.site" target="_blank" v-if="post.site">
+            <a
+              :href="post.site.url || post.site"
+              target="_blank"
+              v-if="post.site"
+            >
               <i class="bi bi-globe2 fs-5 align-middle me-1"></i>
-              <span class="align-middle">Live site</span>
+              <span class="align-middle">{{
+                post.site.title || "Live site"
+              }}</span>
             </a>
           </div>
 

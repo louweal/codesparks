@@ -251,7 +251,10 @@
     "slug": "launched-the-hederian-mint",
     "date": "8 December 2021",
     "intro": "The Hederian Mint is the first NFT collection on the Hedera network that offers 3 dimensional $HBAR coins.",
-    "site": "https://www.thehederianmint.com",
+    "site": {
+      "url": "https://www.thehederianmint.com",
+      "title": "thehederianmint.com"
+    },
     "visual": {
       "title": "Hello 2022",
       "url": "thm.png"
@@ -260,6 +263,27 @@
     "sections": [
       {
         "content": "The supply of each NFT is limited. Don't miss out!"
+      }
+    ]
+  },
+  {
+    "publish": true,
+    "title": "A new symbol for the Dutch Brain Foundation (Hersenstichting)",
+    "badge": "illustrator",
+    "slug": "battle-of-concepts-hersenstichting",
+    "date": "31 January 2021",
+    "intro": "The Dutch Brain Foundation organized a contest to find a new symbol and I submitted an entry.",
+    "site": {
+      "title": "View top 5",
+      "url": "https://www.hersenstichting.nl/stemmen-symbool-onzichtbare-gevolgen/"
+    },
+    "visual": {
+      "url": "hersenstichting.png"
+    },
+
+    "sections": [
+      {
+        "content": "A lot of people participated in the contest and 404 ideas were submitted. A jury consisting of Hersenstichting employees choose their 5 favorite symbols and then the public could give their vote to one of these 5 projects to determine the final winner. Unfortunately, my symbol was not selected by the jury. Visit the website linked below to see the Top 5. The contest was won by Vincent Savelkouls."
       }
     ]
   }
