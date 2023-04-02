@@ -1,13 +1,14 @@
 [
   {
-    "title": "HASHCLAIM NFT",
-    "content": "HashClaim gives you the ability to get more out of your natively staked $HBAR. More info soon!",
-    "tech": ["hedera-sdk", "aws"],
+    "title": "Hedera Leaderboard",
+    "content": "..",
+    "tech": ["hedera-rest-api"],
     "link": {
-      "title": "hashclaim-nft",
-      "icon": "twitter",
-      "url": "https://twitter.com/HashClaimNFT"
+      "title": "Try it out",
+      "icon": "cursor-fill",
+      "slug": "hedera-leaderboard"
     },
+
     "publish": true
   },
   {
