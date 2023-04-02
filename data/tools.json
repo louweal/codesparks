@@ -1,17 +1,5 @@
 [
   {
-    "title": "Hedera Leaderboard",
-    "content": "..",
-    "tech": ["hedera-rest-api"],
-    "link": {
-      "title": "Try it out",
-      "icon": "cursor-fill",
-      "slug": "hedera-leaderboard"
-    },
-
-    "publish": true
-  },
-  {
     "title": "The HBAR Time Machine",
     "content": "Use this machine to find out what your HBAR balance was on a specific date! ",
     "tech": ["hedera-rest-api", "coingecko-api"],
