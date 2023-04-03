@@ -73,6 +73,8 @@ $form-check-input-width: 1.4em;
 $form-check-input-checked-bg-color: auto;
 
 // $form-select-bg: red;
+$pagination-bg: transparent;
+$pagination-padding-x: 0.5rem;
 
 // $form-select-border-width: 0;
 $form-select-focus-border-color: transparent;
@@ -99,6 +101,9 @@ $btn-close-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' v
 @import "@/node_modules/bootstrap/scss/navbar";
 @import "@/node_modules/bootstrap/scss/nav";
 @import "@/node_modules/bootstrap/scss/card";
+@import "@/node_modules/bootstrap/scss/tables";
+@import "@/node_modules/bootstrap/scss/spinners";
+@import "@/node_modules/bootstrap/scss/pagination";
 // @import "@/node_modules/bootstrap/scss/dropdown";
 @import "@/node_modules/bootstrap/scss/forms";
 @import "@/node_modules/bootstrap/scss/transitions";
@@ -127,6 +132,10 @@ body {
   width: 0 !important;
   height: 0 !important;
   background: transparent;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 a {

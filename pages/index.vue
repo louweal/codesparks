@@ -81,8 +81,7 @@
 
           <div class="col-11 col-sm-8 col-md-6 col-lg-5 mb-5">
             <p>
-              These are some tools I build for my fellow Hederians /
-              HBARbarians.
+              Just some tools I build for my fellow Hederians / HBARbarians.
             </p>
           </div>
 
