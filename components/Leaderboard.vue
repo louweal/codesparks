@@ -2,6 +2,7 @@
   <div>
     <div class="rounded-3 bg-c p-3 p-sm-4 p-xl-5 mb-4">
       <form
+        class="mb-3"
         name="contact"
         method="POST"
         @submit.prevent="onSubmit()"
@@ -27,7 +28,7 @@
             :class="validAccount() !== true ? 'text-danger' : false"
             name="accounts"
             placeholder="0.0.123450; 0.0.456780"
-            xxxinput="(e) => setAccounts(e.target.value)"
+            @input="(e) => setAccount(e.target.value)"
             required
           />
           <label class="form-label" for="accounts">Account ID</label>
@@ -42,18 +43,23 @@
           Find rank
         </button>
       </form>
-      <p class="text-danger">
-        Please come back later, this tool is still under development.
+
+      <div class="spinner-border" role="status" v-if="fetching"></div>
+
+      <p class="text-danger" v-if="error">
+        {{ error }}. <br />
+        Account balance: {{ parseFloat(this.balance / 1e8).toFixed(2) }}
       </p>
 
-      <p v-if="submitted"></p>
+      <div v-if="submitted && !fetching && !error">
+        <span>Your rank is:</span>
+        <p class="display-3 f-heading">#{{ rank }}</p>
+      </div>
     </div>
     <div class="rounded-3 bg-c p-3 p-sm-4 p-xl-5">
-      <div class="spinner-border" role="status" v-if="fetching">
-        <!-- <span class="sr-only">Loading...</span> -->
-      </div>
+      <div class="spinner-border" role="status" v-if="fetchingDefault"></div>
 
-      <template v-if="!fetching">
+      <template v-if="!fetchingDefault && !fetching">
         <table class="table">
           <thead class="thead-light">
             <tr>
@@ -137,16 +143,16 @@
 </template>
 
 <script>
-import { fetchLeaderboard } from "../utils/leaderboard";
+import { fetchAccountBalance } from "../utils/leaderboard";
+const { fetchBalances } = require("../utils/fetchHolders.js");
 
 export default {
-  // balances: balances.sort((a, b) => (a.balance > b.balance ? -1 : 1)),
-
   data() {
     return {
       submitted: false,
       account: "0.0.12345",
-      fetching: true,
+      fetching: false,
+      fetchingDefault: true,
       leaders: {},
       curPage: 4,
       itemsPerPage: 25,
@@ -154,23 +160,37 @@ export default {
       numPages: 0,
       pages: [],
       sliceStart: 0,
+      balance: 0,
+      error: undefined,
+      rank: 0,
     };
   },
 
   async fetch() {
-    this.leaders = await fetchLeaderboard();
-    this.leaders = this.leaders.sort((a, b) =>
-      a.balance > b.balance ? -1 : 1
-    );
+    let leaders = await fetchBalances("/api/v1/balances");
 
-    this.numItems = this.leaders.length;
-    this.numPages = Math.ceil(this.numItems / this.itemsPerPage);
-    console.log(this.numPages);
-    this.pages = this.numPages > 0 ? [...Array(this.numPages).keys()] : [];
-    this.fetching = false;
+    this.setLeaderboard(leaders);
+
+    this.fetchingDefault = false;
   },
 
   methods: {
+    setLeaderboard(leaders) {
+      this.leaders = leaders;
+      if (this.leaders) {
+        this.leaders = this.leaders.sort((a, b) =>
+          a.balance > b.balance ? -1 : 1
+        );
+      }
+
+      this.numItems = this.leaders.length;
+      this.numPages = Math.ceil(this.numItems / this.itemsPerPage);
+      // console.log(this.numPages);
+      this.pages = this.numPages > 0 ? [...Array(this.numPages).keys()] : [];
+    },
+    setAccount(e) {
+      this.account = e;
+    },
     validAccount() {
       return this.account.startsWith("0.0.");
     },
@@ -178,6 +198,34 @@ export default {
     updatePage(p) {
       this.curPage = p;
       this.sliceStart = (p - 1) * this.itemsPerPage;
+    },
+
+    async onSubmit() {
+      this.submitted = false;
+      this.error = false;
+      this.fetching = true;
+      if (this.validAccount()) {
+        this.balance = await fetchAccountBalance(this.account);
+        // console.log(this.balance / 1e8);
+        if (this.balance > 50000e8) {
+          let ranking = await fetchBalances("/api/v1/balances", this.balance);
+          ranking = ranking.sort((a, b) => (a.balance > b.balance ? -1 : 1));
+          if (this.balance > 1000000e8) {
+            this.leaders = [];
+            this.setLeaderboard(ranking);
+          }
+          for (let i = ranking.length - 1; i >= 0; i--) {
+            if (ranking[i].account === this.account) {
+              this.rank = i + 1;
+              break;
+            }
+          }
+        } else {
+          this.error = "Unable to obtain ranking";
+        }
+      }
+      this.fetching = false;
+      this.submitted = true;
     },
   },
 };

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <sparkles />
+    <!-- <sparkles /> -->
 
     <Header ref="header" />
 

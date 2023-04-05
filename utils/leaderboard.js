@@ -1,20 +1,17 @@
-const { fetchBalances } = require("./fetchHolders.js");
-// var fs = require("fs");
+export async function fetchAccountBalance(id) {
+  let path =
+    "https://mainnet-public.mirrornode.hedera.com/api/v1/balances?account.id=" +
+    id;
 
-export async function fetchLeaderboard() {
-  // holder lookup
-  let path = "/api/v1/balances";
-  let balances = await fetchBalances(path);
-  console.log("Balances: " + balances.length);
+  let balance = 0;
 
-  // let json = JSON.stringify(balances);
-  // fs.writeFile("myjsonfile.json", json, function (err) {
-  //   if (err) throw err;
-  //   console.log("complete");
-  // });
-  return balances;
-}
+  await fetch(path)
+    .then((response) => response.text())
+    .then(async (body) => {
+      let data = JSON.parse(body);
+      let balances = data["balances"];
+      balance = balances[0]["balance"];
+    });
 
-export async function fetchAccountBalance() {
-  let path = "/api/v1/balances?account.id=0.0.1874003";
+  return balance;
 }
