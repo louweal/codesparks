@@ -13,5 +13,5 @@ export async function fetchAccountBalance(id) {
       balance = balances[0]["balance"];
     });
 
-  return balance;
+  return +balance;
 }

@@ -2,7 +2,6 @@
   <div>
     <div class="rounded-3 bg-c p-3 p-sm-4 p-xl-5 mb-4">
       <form
-        class="mb-3"
         name="contact"
         method="POST"
         @submit.prevent="onSubmit()"
@@ -43,7 +42,9 @@
           Find rank
         </button>
       </form>
+    </div>
 
+    <div class="rounded-3 bg-c p-3 p-sm-4 p-xl-5 mb-4" v-if="submitted">
       <div class="spinner-border" role="status" v-if="fetching"></div>
 
       <p class="text-danger" v-if="error">
@@ -51,11 +52,12 @@
         Account balance: {{ parseFloat(this.balance / 1e8).toFixed(2) }}
       </p>
 
-      <div v-if="submitted && !fetching && !error">
+      <div v-if="!error && !fetching">
         <span>Your rank is:</span>
         <p class="display-3 f-heading">#{{ rank }}</p>
       </div>
     </div>
+
     <div class="rounded-3 bg-c p-3 p-sm-4 p-xl-5">
       <div class="spinner-border" role="status" v-if="fetchingDefault"></div>
 
@@ -83,7 +85,7 @@
           </tbody>
         </table>
 
-        <ul class="pagination">
+        <ul class="pagination cursor-pointer">
           <li
             class="page-item"
             v-if="curPage > 1"
@@ -154,7 +156,7 @@ export default {
       fetching: false,
       fetchingDefault: true,
       leaders: {},
-      curPage: 4,
+      curPage: 1,
       itemsPerPage: 25,
       numItems: 0,
       numPages: 0,
@@ -168,9 +170,7 @@ export default {
 
   async fetch() {
     let leaders = await fetchBalances("/api/v1/balances");
-
     this.setLeaderboard(leaders);
-
     this.fetchingDefault = false;
   },
 
@@ -201,18 +201,21 @@ export default {
     },
 
     async onSubmit() {
-      this.submitted = false;
+      this.submitted = true;
       this.error = false;
       this.fetching = true;
       if (this.validAccount()) {
         this.balance = await fetchAccountBalance(this.account);
         // console.log(this.balance / 1e8);
-        if (this.balance > 50000e8) {
+        if (+this.balance > +50000e8) {
           let ranking = await fetchBalances("/api/v1/balances", this.balance);
           ranking = ranking.sort((a, b) => (a.balance > b.balance ? -1 : 1));
-          if (this.balance > 1000000e8) {
-            this.leaders = [];
+          console.log(this.balance < 1000000e8);
+          if (this.balance < 1000000e8) {
+            console.log("true");
             this.setLeaderboard(ranking);
+            this.curPage = this.numPages;
+            this.sliceStart = (this.curPage - 1) * this.itemsPerPage;
           }
           for (let i = ranking.length - 1; i >= 0; i--) {
             if (ranking[i].account === this.account) {
@@ -225,7 +228,6 @@ export default {
         }
       }
       this.fetching = false;
-      this.submitted = true;
     },
   },
 };
