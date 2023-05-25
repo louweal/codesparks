@@ -20,14 +20,14 @@
           </p>
 
           <p>
-            Also check out this more advanced Hedera Leaderboard which was build
-            by Phasmatis:
+            Also check out this more advanced leaderboard:
             <a
               href="https://hedera-leaderboard.com"
               target="_blank"
               class="text-light"
               >hedera-leaderboard.com</a
             >
+            (not build by me)
           </p>
         </div>
 
