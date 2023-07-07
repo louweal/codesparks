@@ -1,5 +1,13 @@
 [
   {
+    "title": "Heather",
+    "content": "Heather is a decentralized platform for sharing resources within local communities to minimize environmental impact.",
+    "tech": ["vue", "nuxt", "hedera-sdk", "hashpack", "solidity"],
+    "repo": "https://github.com/louweal/heather",
+    "site": "https://heather.codesparks.nl",
+    "publish": true
+  },
+  {
     "title": "Fictron",
     "content": "Fictron is a platform for fiction novels. Everyone can publish books on Fictron an everyone can read books. Unlike other platforms you don't have to pay for the books before reading, instead you pay while you read using micro-transactions implemented on the TRON network.",
     "tech": ["TRON", "solidity", "vue", "nuxt", "bootstrap"],
