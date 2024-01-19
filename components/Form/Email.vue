@@ -23,11 +23,47 @@
           width="100%"
           class="bg-white"
         />
-        Localhost logo preview
+        Local (MAMP) logo preview
       </div>
     </div>
 
     <div class="row">
+      <div class="col-4">
+        <!-- BG color input -->
+        <div class="form-floating mb-4">
+          <input
+            type="text"
+            id="bgcolor"
+            class="form-control bg-c"
+            name="bgcolor"
+            @input="(e) => setBgColor(e.target.value)"
+            :value="bgcolor"
+            :style="{ border: `3px solid ${bgcolor}` }"
+            required
+          />
+          <label class="form-label" for="bgcolor"
+            >Header background color</label
+          >
+        </div>
+      </div>
+
+      <div class="col-4">
+        <!-- HeaderTextcolor input -->
+        <div class="form-floating mb-4">
+          <input
+            type="text"
+            id="headerTextColor"
+            class="form-control bg-c"
+            name="headerTextColor"
+            :style="{ border: `3px solid ${headerTextColor}` }"
+            @input="(e) => setHeaderTextColor(e.target.value)"
+            :value="headerTextColor"
+            required
+          />
+          <label class="form-label" for="textcolor">Header text color</label>
+        </div>
+      </div>
+
       <div class="col-4">
         <!-- Textcolor input -->
         <div class="form-floating mb-4">
@@ -42,23 +78,6 @@
             required
           />
           <label class="form-label" for="textcolor">Text color</label>
-        </div>
-      </div>
-
-      <div class="col-4">
-        <!-- BG color input -->
-        <div class="form-floating mb-4">
-          <input
-            type="text"
-            id="bgcolor"
-            class="form-control bg-c"
-            name="bgcolor"
-            @input="(e) => setBgColor(e.target.value)"
-            :value="bgcolor"
-            :style="{ border: `3px solid ${bgcolor}` }"
-            required
-          />
-          <label class="form-label" for="bgcolor">Background color</label>
         </div>
       </div>
     </div>
@@ -150,21 +169,11 @@
       <label class="form-label" for="message">Bericht</label>
     </div>
 
-    <!-- Submit button -->
-    <button
-      type="submit"
-      class="btn btn-secondary btn-block mb-4"
-      @click="submitForm()"
-      event=""
-    >
-      Create email templates
-    </button>
-
     <div class="my-5">
       <h2>Mail 1</h2>
 
       <div v-html="mail1" class="mb-3"></div>
-      <div class="btn btn-secondary" @click="copyMail1()">
+      <div class="btn btn-secondary" @click="copyToClipboard(mail1)">
         <i class="bi bi-copy"></i> Copy code
       </div>
     </div>
@@ -173,8 +182,7 @@
       <h2>Mail 2</h2>
 
       <div v-html="mail2" class="mb-3"></div>
-
-      <div class="btn btn-secondary" @click="copyMail2()">
+      <div class="btn btn-secondary" @click="copyToClipboard(mail2)">
         <i class="bi bi-copy"></i> Copy code
       </div>
     </div>
@@ -192,7 +200,8 @@ export default {
       domain: "https://outhands.nl",
       localDomain: "",
       bgcolor: "#ffcc00",
-      textcolor: "#010101",
+      textcolor: "#7e7e7e",
+      headerTextColor: "#010101",
       fields: `[text* your-name autocomplete:name placeholder "Naam"]
 [email* your-email autocomplete:email placeholder "E-mail"]
 [text* your-subject placeholder "Onderwerp"]
@@ -219,15 +228,6 @@ Bij vragen kan u contact opnemen via support@outhands.nl.`,
       parsedMessage2: "",
     };
   },
-  // computed: {
-  //   cleanedMessage1() {
-  //     return this.message1.replaceAll("<br />", "\n");
-  //   },
-
-  //   cleanedMessage2() {
-  //     return this.message2.replaceAll("<br />", "\n");
-  //   },
-  // },
   created() {
     let tmplCopy = { ...this.$options.tmpl };
     this.mail1 = tmplCopy.syntax;
@@ -274,28 +274,49 @@ Bij vragen kan u contact opnemen via support@outhands.nl.`,
     setTextColor(v) {
       //check input
       if (!v.startsWith("#") || v.length !== 7) {
-        // console.log("invalid bgcolor");
+        return;
+      }
+      // //reset
+      this.mail1 = this.mail1.replaceAll(
+        ` color: ${this.textcolor}`,
+        ` color: TEXTCOLOR`
+      );
+      this.mail2 = this.mail2.replaceAll(
+        ` color: ${this.textcolor}`,
+        ` color: TEXTCOLOR`
+      );
+      // set new textcolor
+      this.textcolor = v;
+      this.mail1 = this.mail1.replaceAll("TEXTCOLOR", this.textcolor);
+      this.mail2 = this.mail2.replaceAll("TEXTCOLOR", this.textcolor);
+
+      // re-parse fields
+      // this.setFields(this.fields);
+    },
+
+    setHeaderTextColor(v) {
+      //check input
+      if (!v.startsWith("#") || v.length !== 7) {
         return;
       }
       //reset
       this.mail1 = this.mail1.replace(
-        `; color: ${this.textcolor}`,
-        `; color: TEXTCOLOR`
+        `; COLOR: ${this.headerTextColor}`,
+        `; COLOR: HEADERTEXTCOLOR`
       );
       this.mail2 = this.mail2.replace(
-        `; color: ${this.textcolor}`,
-        `; color: TEXTCOLOR`
+        `; COLOR: ${this.headerTextColor}`,
+        `; COLOR: HEADERTEXTCOLOR`
       );
       // set new textcolor
-      this.textcolor = v;
-      this.mail1 = this.mail1.replace("TEXTCOLOR", this.textcolor);
-      this.mail2 = this.mail2.replace("TEXTCOLOR", this.textcolor);
+      this.headerTextColor = v;
+      this.mail1 = this.mail1.replace("HEADERTEXTCOLOR", this.headerTextColor);
+      this.mail2 = this.mail2.replace("HEADERTEXTCOLOR", this.headerTextColor);
     },
 
     setBgColor(v) {
       // check input
       if (!v.startsWith("#") || v.length !== 7) {
-        // console.log("invalid bgcolor");
         return;
       }
       //reset
@@ -347,8 +368,6 @@ Bij vragen kan u contact opnemen via support@outhands.nl.`,
       this.message1 = v;
       this.parsedMessage1 = this.message1.replaceAll("\n", "<br />");
 
-      console.log(this.message1);
-
       this.mail1 = this.mail1.replace(
         placeholder,
         `<!-- message --> ${this.parsedMessage1} <!-- message -->`
@@ -371,7 +390,7 @@ Bij vragen kan u contact opnemen via support@outhands.nl.`,
       for (const email of emailAddresses) {
         this.parsedMessage2 = this.parsedMessage2.replace(
           email,
-          `<a href="mailto:${email}" style="color: ${this.textcolor}; opacity: 0.75">${email}</a>`
+          `<a href="mailto:${email}" style="color: blue; opacity: 0.75">${email}</a>`
         );
       }
 
@@ -382,7 +401,6 @@ Bij vragen kan u contact opnemen via support@outhands.nl.`,
     },
 
     setHeader2(v) {
-      console.log("v :>> ", v);
       let placeholder = "<!-- header --> HEADER <!-- header -->";
       // check input
       if (v.length < 3) {
@@ -418,6 +436,7 @@ Bij vragen kan u contact opnemen via support@outhands.nl.`,
         placeholder
       );
       // set new fields table
+      this.fields = v;
       this.fieldsTable = this.parseFields(v);
       this.mail1 = this.mail1.replace(
         placeholder,
@@ -445,15 +464,12 @@ Bij vragen kan u contact opnemen via support@outhands.nl.`,
 
         const placeholderIndex = input.indexOf("placeholder");
 
-        if (placeholderIndex === -1) {
-          console.log(`hmmmm: ${input}`);
-
-          // continue;
-        } else {
-          // Extract the field value
-          fieldDescription = input
-            .substring(placeholderIndex + "placeholder".length)
-            .match(/['"](.*?)['"]/)[1];
+        if (placeholderIndex !== -1) {
+          let match = input.slice(placeholderIndex + 11).match(/['"](.*?)['"]/);
+          if (match) {
+            console.log(match);
+            fieldDescription = match[1];
+          }
         }
 
         const words = input.split(/\s+/);
@@ -463,10 +479,10 @@ Bij vragen kan u contact opnemen via support@outhands.nl.`,
         let fieldOutput = `[${fieldName}]`;
 
         if (fieldType.startsWith("email")) {
-          fieldOutput = `<a style="opacity: 0.75; color:${this.textcolor};" href="mailto:[${fieldName}]">[${fieldName}]</a>`;
+          fieldOutput = `<a style="color: blue;" href="mailto:[${fieldName}]">[${fieldName}]</a>`;
         }
         if (fieldType.startsWith("tel")) {
-          fieldOutput = `<a style="opacity: 0.75; color:${this.textcolor};" href="tel:[${fieldName}]">[${fieldName}]</a>`;
+          fieldOutput = `<a style="color: blue;" href="tel:[${fieldName}]">[${fieldName}]</a>`;
         }
 
         if (fieldType.startsWith("submit")) {
@@ -474,14 +490,18 @@ Bij vragen kan u contact opnemen via support@outhands.nl.`,
         }
 
         // Generating the HTML output
-        const output = `<tr><td width="40%" style="color:#000000; font-size:14px; font-weight:bold; font-family:sans-serif; border-right:2px solid #f8f8f8; border-bottom:2px solid #f8f8f8; padding:15px 10px">${fieldDescription}</td><td style="color:#000000; font-size:14px; font-family:sans-serif; border-bottom:2px solid #f8f8f8; padding:15px 10px;">${fieldOutput}</td></tr>`;
+        const output = `<tr><td width="40%" style=" color: ${this.textcolor}; font-size:14px; font-weight:bold; font-family:sans-serif; border-right:2px solid #f8f8f8; border-bottom:2px solid #f8f8f8; padding:15px 10px">${fieldDescription}</td><td style=" color: ${this.textcolor}; font-size:14px; font-family:sans-serif; border-bottom:2px solid #f8f8f8; padding:15px 10px;">${fieldOutput}</td></tr>`;
         results.push(output);
       }
       return results.join("\n");
     },
 
-    copyMail1() {
-      console.log("todo copy mail 1");
+    async copyToClipboard(mail) {
+      try {
+        await navigator.clipboard.writeText(mail);
+      } catch (err) {
+        console.error("Failed to copy: ", err);
+      }
     },
   },
 };
