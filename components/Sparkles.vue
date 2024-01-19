@@ -30,7 +30,7 @@
 <script>
 export default {
   created() {
-    console.log(this.$route.path);
+    // console.log(this.$route.path);
     // if(this.$route.params.)
   },
 

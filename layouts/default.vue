@@ -42,7 +42,7 @@ export default {
     let pushdown = this.$refs["pushdown"];
     pushdown.style.height = headerHeight + "px";
 
-    console.log(this.$route.params);
+    // console.log(this.$route.params);
   },
 };
 </script>

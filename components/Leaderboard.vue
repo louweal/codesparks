@@ -210,9 +210,9 @@ export default {
         if (+this.balance > +50000e8) {
           let ranking = await fetchBalances("/api/v1/balances", this.balance);
           ranking = ranking.sort((a, b) => (a.balance > b.balance ? -1 : 1));
-          console.log(this.balance < 1000000e8);
+          // console.log(this.balance < 1000000e8);
           if (this.balance < 1000000e8) {
-            console.log("true");
+            // console.log("true");
             this.setLeaderboard(ranking);
             this.curPage = this.numPages;
             this.sliceStart = (this.curPage - 1) * this.itemsPerPage;
